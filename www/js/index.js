@@ -87,7 +87,7 @@ function onCapturePhoto(fileURI) {
     options.mimeType = "image/jpeg";
     options.params = {};  //si se necesitan ...
     var ft = new FileTransfer();
-    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto"), OKfoto, ERRORfoto, options);
+    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto2"), OKfoto, ERRORfoto, options);
 }
 
 function capturePhoto() {
