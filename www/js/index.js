@@ -113,6 +113,6 @@ var OKfoto = function (r) {
 }
 
 var ERRORfoto = function (error) {
-    alert("ERROR envian la foto: Code = " + error.code + ' / ' + error.source + ' / ' + error.target);
+    alert("ERROR enviant la foto: CODE: " + error.code + ' / SOURCE: ' + error.source + ' / TARGET: ' + error.target);
 }
 
