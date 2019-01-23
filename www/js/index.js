@@ -81,13 +81,13 @@ function onCapturePhoto(fileURI) {
         }
     }
  
-    // var options = new FileUploadOptions();
-    // options.fileKey = "file";
-    // options.fileName = fileURI.substr(fileURI.lastIndexOf('/') + 1);
-    // options.mimeType = "image/jpeg";
-    // options.params = {}; // if we need to send parameters to the server request
-    // var ft = new FileTransfer();
-    // ft.upload(fileURI, encodeURI("http://host/upload"), win, fail, options);
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = fileURI.substr(fileURI.lastIndexOf('/') + 1);
+    options.mimeType = "image/jpeg";
+    options.params = {};  //si se necesitan ...
+    var ft = new FileTransfer();
+    ft.upload(fileURI, encodeURI("http://localhost:10315/api/PostFoto"), win, fail, options);
 }
 
 function capturePhoto() {
