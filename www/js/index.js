@@ -87,7 +87,7 @@ function onCapturePhoto(fileURI) {
     options.mimeType = "image/jpeg";
     options.params = {};  //si se necesitan ...
     var ft = new FileTransfer();
-    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto"), win, fail, options);
+    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto"), OKfoto, ERRORfoto, options);
 }
 
 function capturePhoto() {
@@ -106,5 +106,13 @@ function Ahora()
     var currentdate = new Date(); 
     var now = currentdate.getFullYear() + (currentdate.getMonth() + 1) + currentdate.getDate() + currentdate.getHours() + currentdate.getMinutes() + currentdate.getSeconds() + currentdate.getMilliseconds();
     return now;
+}
+
+var OKfoto = function (r) {
+    alert('Foto pujada OK: ' + r.response + '  bytes enviats:' + r.bytesSent);
+}
+
+var ERRORfoto = function (error) {
+    alert("ERROR envian la foto: Code = " + error.code + ' / ' + error.source + ' / ' + error.target);
 }
 
