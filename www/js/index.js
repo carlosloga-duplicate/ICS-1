@@ -83,11 +83,11 @@ function onCapturePhoto(fileURI) {
  
     var options = new FileUploadOptions();
     options.fileKey = "file";
-    options.fileName = fileURI.substr(fileURI.lastIndexOf('/') + 1);
+    options.fileName =  "Foto_" + Ahora();  //fileURI.substr(fileURI.lastIndexOf('/') + 1);
     options.mimeType = "image/jpeg";
     options.params = {};  //si se necesitan ...
     var ft = new FileTransfer();
-    ft.upload(fileURI, encodeURI("http://localhost:10315/api/PostFoto"), win, fail, options);
+    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto"), win, fail, options);
 }
 
 function capturePhoto() {
@@ -99,5 +99,12 @@ function capturePhoto() {
  
 function onFail(message) {
     alert('Failed because: ' + message);
+}
+
+function Ahora()
+{
+    var currentdate = new Date(); 
+    var now = currentdate.getFullYear() + (currentdate.getMonth() + 1) + currentdate.getDate() + currentdate.getHours() + currentdate.getMinutes() + currentdate.getSeconds() + currentdate.getMilliseconds();
+    return now;
 }
 
