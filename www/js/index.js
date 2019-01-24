@@ -41,7 +41,10 @@ var app = {
 
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
-
+        $.doTimeout( 3000, function(){
+            $(".divINICI" ).hide();
+            $.mobile.changePage('#pagePrincipal', {transition: "none"});
+        });    
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
