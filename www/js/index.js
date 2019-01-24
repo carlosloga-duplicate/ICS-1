@@ -85,8 +85,12 @@ function onCapturePhoto(fileURI) {
     var options = new FileUploadOptions();
     options.fileKey = "file";
     options.fileName =  "Foto_" + Ahora() + ".jpeg";  //fileURI.substr(fileURI.lastIndexOf('/') + 1);
-    options.mimeType = "image/jpeg";
-    options.params = {};  //si se necesitan ...
+    options.mimeType = "image/jpeg"; 
+    var params = {};
+    params.value1 = $("txtCamp1").val();
+    params.value2 = $("txtCamp2").val();
+    params.value2 = $("txtCamp3").val();
+    options.params = params;  
     var ft = new FileTransfer();
     ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto2"), OKfoto, ERRORfoto, options);
 }
