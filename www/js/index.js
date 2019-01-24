@@ -41,7 +41,7 @@ var app = {
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
         
-        $.doTimeout( 3000, function(){ 
+        $.doTimeout(2000, function(){ 
             $.mobile.changePage('#pagePrincipal', {transition: "none"});
         });    
     },
