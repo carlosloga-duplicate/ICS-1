@@ -65,7 +65,7 @@ function onCapturePhoto(fileURI) {
     var win = function (r) {
         clearCache();
         retries = 0;
-        alert('Done!');
+        //alert('Done!');
     }
  
     var fail = function (error) {
@@ -77,7 +77,7 @@ function onCapturePhoto(fileURI) {
         } else {
             retries = 0;
             clearCache();
-            alert('Ups. Something wrong happens!');
+            alert('S´ha produit un error');
         }
     }
  
@@ -98,7 +98,7 @@ function capturePhoto() {
 }
  
 function onFail(message) {
-    alert('Failed because: ' + message);
+    alert('Error: ' + message);
 }
 
 function Ahora() {
@@ -120,10 +120,10 @@ function Ahora() {
 }
 
 var OKfoto = function (r) {
-    alert('Foto pujada OK: ' + r.response + '  bytes enviats:' + r.bytesSent);
+    alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
 }
 
 var ERRORfoto = function (error) {
-    alert("ERROR enviant la foto: CODE: " + error.code + ' / SOURCE: ' + error.source + ' / TARGET: ' + error.target);
+    alert("ERROR enviant la foto: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 
