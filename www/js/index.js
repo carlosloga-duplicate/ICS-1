@@ -89,7 +89,7 @@ function onCapturePhoto(fileURI) {
     var params = {};
     params.value1 = $("txtCamp1").val();
     params.value2 = $("txtCamp2").val();
-    params.value2 = $("txtCamp3").val();
+    params.value3 = $("txtCamp3").val();
     options.params = params;  
     var ft = new FileTransfer();
     ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto2"), OKfoto, ERRORfoto, options);
@@ -125,10 +125,11 @@ function Ahora() {
 }
 
 var OKfoto = function (r) {
-    alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
+    $("#AvisEnviat").popup("open");
+    // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
 }
 
 var ERRORfoto = function (error) {
-    alert("ERROR enviant la foto: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
+    alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 
