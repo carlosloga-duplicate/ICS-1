@@ -36,13 +36,12 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function() { 
         app.receivedEvent('deviceready');
-
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
-        $.doTimeout( 3000, function(){
-            $(".divINICI" ).hide();
+        
+        $.doTimeout( 3000, function(){ 
             $.mobile.changePage('#pagePrincipal', {transition: "none"});
         });    
     },
@@ -54,7 +53,6 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
     }
 
 };
