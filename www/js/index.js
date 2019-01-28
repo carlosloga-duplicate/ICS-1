@@ -111,14 +111,15 @@ function onFail(message) {
 }
 
 var OKfoto = function (r) {     
-    alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
-    $("#AvisEnviat").popup();    
-    $("#AvisEnviat").popup("open"); 
-    setTimeout(function(){  $("#AvisEnviat").popup("close"); }, 3000);
+    $("#AvisEnvioOK").popup();    
+    $("#AvisEnvioOK").popup("open"); 
+    setTimeout(function(){  $("#AvisEnvioOK").popup("close"); }, 3000);
     // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
 }
 
 var ERRORfoto = function (error) {
-    alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
+    $("#AvisEnvioKO").popup();    
+    $("#AvisEnvioKO").popup("open"); 
+    //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 

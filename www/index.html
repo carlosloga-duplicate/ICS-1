@@ -66,10 +66,14 @@
             <br/>
             <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="capturePhoto();">Adjuntar foto i enviar</a>
             <br/>
-            <div data-role="popup" id="AvisEnviat" name="AvisEnviat" data-position-to="window" class="ui-content" style="max-width:280px">
+            <div data-role="popup" id="AvisEnvioOK" name="AvisEnvioOK" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #c7efc4;">
                 <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">OK</a>
                 <p>Dades enviades</p>
-            </div>            
+            </div>               
+            <div data-role="popup" id="AvisEnvioKO" name="AvisEnvioKO" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #FFC6C1">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">OK</a>
+                    <p>ERROR enviant dades</p>
+                </div>  
         </div>        
         <div data-role="footer" id="divPie" name="divPie" data-theme="a" style="border: 0px; font-size: xx-small; text-align: right; width: 100%; position: fixed; bottom: 1px;">
             <table style="width: 100%;"><tr><td id="tdPie" name="tdPie" style="text-align:left;"></td><td style="text-align: right;">&copy;&nbsp;2019 ICS&nbsp;&nbsp;</td></tr></table>             
