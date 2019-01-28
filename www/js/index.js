@@ -65,6 +65,14 @@ function clearCache() {
     navigator.camera.cleanup();
 }
 
+function capturePhoto() { 
+    $('#AvisEnviant').show();
+    navigator.camera.getPicture(onCapturePhoto, onFail, {
+        quality: 100,
+        destinationType: destinationType.FILE_URI
+    });
+}
+
 var retries = 0;
 function onCapturePhoto(fileURI) {
     var win = function (r) {
@@ -98,13 +106,6 @@ function onCapturePhoto(fileURI) {
     var ft = new FileTransfer();
     ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto2"), OKfoto, ERRORfoto, options);
 }
-
-function capturePhoto() { 
-    navigator.camera.getPicture(onCapturePhoto, onFail, {
-        quality: 100,
-        destinationType: destinationType.FILE_URI
-    });
-}
  
 function onFail(message) {
     MensajePopup('KO', 'ERROR enviant les dades \n' + message, 0);
@@ -125,6 +126,7 @@ var ERRORfoto = function (error) {
 
 function MensajePopup(cual, txtMsg, esperar)
 {
+    $('#AvisEnviant').hide();
     if(cual=='OK')
     {
         $("#AvisEnvioOK").popup();    
