@@ -110,8 +110,8 @@ function onFail(message) {
     alert('Error: ' + message);
 }
 
-var OKfoto = function (r) { 
-    alert('popup?');
+var OKfoto = function (r) {     
+    $("#AvisEnviat").popup();
     $("#AvisEnviat").popup("open"); 
     setTimeout(function(){  $("#AvisEnviat").popup("close"); }, 3000);
     // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
