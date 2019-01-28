@@ -99,7 +99,7 @@ function onCapturePhoto(fileURI) {
     ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto2"), OKfoto, ERRORfoto, options);
 }
 
-function capturePhoto() {
+function capturePhoto() { 
     navigator.camera.getPicture(onCapturePhoto, onFail, {
         quality: 100,
         destinationType: destinationType.FILE_URI
@@ -111,7 +111,8 @@ function onFail(message) {
 }
 
 var OKfoto = function (r) {     
-    $("#AvisEnviat").popup();
+    alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
+    $("#AvisEnviat").popup();    
     $("#AvisEnviat").popup("open"); 
     setTimeout(function(){  $("#AvisEnviat").popup("close"); }, 3000);
     // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
