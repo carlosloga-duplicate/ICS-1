@@ -43,9 +43,7 @@ var app = {
         
         $.doTimeout(2000, function(){ 
             $.mobile.changePage('#pagePrincipal', {transition: "none"});
-            cordova.getAppVersion(function (version) {                
-                $("#tdPie").html("v." + version); 
-            });            
+            $("#tdPie").html("v." + cogeVersion());            
         });    
     },
     // Update DOM on a Received Event

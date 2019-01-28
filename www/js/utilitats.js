@@ -17,3 +17,8 @@ function Ahora() {
     return ahora;
 }
 
+
+cordova.getAppVersion.getVersionNumber().then(function (version) {
+    return version.toString();
+});
+
