@@ -105,7 +105,7 @@ function onCapturePhoto(fileURI) {
     params.p_camp3 = $("#txtCamp3").val();
     options.params = params;  
     var ft = new FileTransfer();
-    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto2"), OKfoto, ERRORfoto, options);
+    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto"), OKfoto, ERRORfoto, options);
 }
  
 function onFail(message) {
