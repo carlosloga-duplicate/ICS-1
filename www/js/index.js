@@ -42,10 +42,11 @@ var app = {
         destinationType = navigator.camera.DestinationType;
         
         $.doTimeout(2000, function(){ 
-            $.mobile.changePage('#pagePrincipal', {transition: "none"});
+            alert('coger vers.');
             var ver = cogeVersion();
             alert(ver);
-            $("#tdPie").html("v." + ver);            
+            $("#tdPie").html("v." + ver);    
+            $.mobile.changePage('#pagePrincipal', {transition: "flow"});        
         });    
     },
     // Update DOM on a Received Event
