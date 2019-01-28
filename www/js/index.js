@@ -42,9 +42,7 @@ var app = {
         destinationType = navigator.camera.DestinationType;
         
         $.doTimeout(2000, function(){ 
-            alert('coger vers.');
             cordova.getAppVersion.getVersionNumber(function (version) {
-                alert(version);
                 $("#tdPie").html("v." + version);    
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"});   
@@ -112,8 +110,10 @@ function onFail(message) {
     alert('Error: ' + message);
 }
 
-var OKfoto = function (r) {
-    $("#AvisEnviat").popup("open");
+var OKfoto = function (r) { 
+    alert('popup?');
+    $("#AvisEnviat").popup("open"); 
+    setTimeout(function(){  $("#AvisEnviat").popup("close"); }, 3000);
     // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
 }
 
