@@ -44,8 +44,9 @@ var app = {
         $.doTimeout(2000, function(){ 
             cordova.getAppVersion.getVersionNumber(function (version) {
                 $("#tdPie").html("v." + version);    
+                $("#deviceready").hide();
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
-                $.mobile.changePage('#pagePrincipal', {transition: "flow"});   
+                //$.mobile.changePage('#pagePrincipal', {transition: "flow"});  
             });                   
         });    
     },
