@@ -119,7 +119,7 @@ var OKfoto = function (r) {
 }
 
 var ERRORfoto = function (error) {
-    MensajePopup('KO', 'ERROR enviant les dades', 0);
+    MensajePopup('KO', 'ERROR: ' + error.code + ' desant en: ' + error.target, 0);
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 
