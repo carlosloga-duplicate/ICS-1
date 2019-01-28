@@ -19,6 +19,7 @@ function Ahora() {
 
 
 cordova.getAppVersion.getVersionNumber().then(function (version) {
+    alert(version);
     return version.toString();
 });
 

@@ -43,7 +43,9 @@ var app = {
         
         $.doTimeout(2000, function(){ 
             $.mobile.changePage('#pagePrincipal', {transition: "none"});
-            $("#tdPie").html("v." + cogeVersion());            
+            var ver = cogeVersion();
+            alert(ver);
+            $("#tdPie").html("v." + ver);            
         });    
     },
     // Update DOM on a Received Event
@@ -88,9 +90,9 @@ function onCapturePhoto(fileURI) {
     options.fileName = "Foto_" + Ahora() + ".jpeg";  //fileURI.substr(fileURI.lastIndexOf('/') + 1);
     options.mimeType = "image/jpeg"; 
     var params = {};
-    params.value1 = $("#txtCamp1").val();
-    params.value2 = $("#txtCamp2").val();
-    params.value3 = $("#txtCamp3").val();
+    params.p_camp1 = $("#txtCamp1").val();
+    params.p_camp2 = $("#txtCamp2").val();
+    params.p_camp3 = $("#txtCamp3").val();
     options.params = params;  
     var ft = new FileTransfer();
     ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/PostFoto2"), OKfoto, ERRORfoto, options);
