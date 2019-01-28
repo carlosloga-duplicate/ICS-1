@@ -128,14 +128,14 @@ function MensajePopup(cual, txtMsg, esperar)
     if(cual=='OK')
     {
         $("#AvisEnvioOK").popup();    
-        $("#txtOK").val(txtMsg);
+        $("#txtOK").html(txtMsg);
         $("#AvisEnvioOK").popup("open");         
         if(esperar > 0) setTimeout(function(){  $("#AvisEnvioOK").popup("close"); }, esperar);
     }
     else
     {
         $("#AvisEnvioKO").popup();    
-        $("#txtKO").val(txtMsg);
+        $("#txtKO").html(txtMsg);
         $("#AvisEnvioKO").popup("open"); 
         if(esperar > 0) setTimeout(function(){  $("#AvisEnvioKO").popup("close"); }, esperar);
     }
