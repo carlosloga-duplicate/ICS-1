@@ -43,10 +43,12 @@ var app = {
         
         $.doTimeout(2000, function(){ 
             alert('coger vers.');
-            var ver = cogeVersion();
-            alert(ver);
-            $("#tdPie").html("v." + ver);    
-            $.mobile.changePage('#pagePrincipal', {transition: "flow"});        
+            cordova.getAppVersion.getVersionNumber(function (version) {
+                alert(version);
+                $("#tdPie").html("v." + version);    
+                $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
+                $.mobile.changePage('#pagePrincipal', {transition: "flow"});   
+            });                   
         });    
     },
     // Update DOM on a Received Event
