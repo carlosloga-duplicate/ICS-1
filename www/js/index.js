@@ -107,19 +107,36 @@ function capturePhoto() {
 }
  
 function onFail(message) {
-    alert('Error: ' + message);
+    MensajePopup('KO', 'ERROR enviant les dades \n' + message, 0);
 }
 
-var OKfoto = function (r) {     
-    $("#AvisEnvioOK").popup();    
-    $("#AvisEnvioOK").popup("open"); 
-    setTimeout(function(){  $("#AvisEnvioOK").popup("close"); }, 3000);
+var OKfoto = function (r) {    
+    MensajePopup('OK', 'Les dades s´han enviat correctament', 4000);
+    $("#txtCamp1").val("");
+    $("#txtCamp2").val("");
+    $("#txtCamp3").val("");
     // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
 }
 
 var ERRORfoto = function (error) {
-    $("#AvisEnvioKO").popup();    
-    $("#AvisEnvioKO").popup("open"); 
+    MensajePopup('KO', 'ERROR enviant les dades', 0);
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 
+function MensajePopup(cual, txtMsg, esperar)
+{
+    if(cual=='OK')
+    {
+        $("#AvisEnvioOK").popup();    
+        $("#txtOK").val(txtMsg);
+        $("#AvisEnvioOK").popup("open");         
+        if(esperar > 0) setTimeout(function(){  $("#AvisEnvioOK").popup("close"); }, esperar);
+    }
+    else
+    {
+        $("#AvisEnvioKO").popup();    
+        $("#txtKO").val(txtMsg);
+        $("#AvisEnvioKO").popup("open"); 
+        if(esperar > 0) setTimeout(function(){  $("#AvisEnvioKO").popup("close"); }, esperar);
+    }
+}
