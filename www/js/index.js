@@ -159,7 +159,7 @@ function baixarDades()
         dataType: "json",
         headers: {"Accept": "application/json"},
         success: function(response) {
-            alert("Success: " + response);
+            alert("Success: " + response.result );
             if (response.result == "success") {
                 MensajePopup('OK', 'Les dades s´han rebut correctament', 4000);
                 var rebut = response.split("#");
@@ -177,7 +177,6 @@ function baixarDades()
                 alert('error: ' + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders() );
                 MensajePopup('KO', 'ERROR: ' + status, 0);
         }
-
     });
 
 }
