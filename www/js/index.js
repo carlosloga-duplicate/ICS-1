@@ -158,22 +158,14 @@ function baixarDades()
         data: {"usu": escape(usr), "passw": escape(pwd) },
         dataType: "json",
         headers: {"Accept": "application/json"},
-        success: function(response) {
+        success: function(response, status) {
             response = JSON.stringify(response);
-            alert(response);
-            alert("Result: " + response.result);
-            if (response.result == "success") {
-                MensajePopup('OK', 'Les dades s´han rebut correctament', 4000);
-                var rebut = response.split("#");
-                $("#txtCamp1").val("el " + rebut[0].split("|")[0] + " és " + rebut[0].split("|")[1]);
-                $("#txtCamp2").val("el " + rebut[1].split("|")[0] + " és " + rebut[1].split("|")[1]);
-                if(rebut.length > 2)
-                    $("#txtCamp3").val("el " + rebut[2].split("|")[0] + " és " + rebut[2].split("|")[1]);
-            }
-            else {
-                alert("Success Error: " + response);
-                MensajePopup('KO', response, 0);
-            }
+            MensajePopup('OK', 'Les dades s´han rebut correctament', 4000);
+            var rebut = response.split("#");
+            $("#txtCamp1").val("el " + rebut[0].split("|")[0] + " és " + rebut[0].split("|")[1]);
+            $("#txtCamp2").val("el " + rebut[1].split("|")[0] + " és " + rebut[1].split("|")[1]);
+            if(rebut.length > 2)
+                $("#txtCamp3").val("el " + rebut[2].split("|")[0] + " és " + rebut[2].split("|")[1]);
         },
             error: function(request, status, error) { 
                 alert('error: ' + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders() );
