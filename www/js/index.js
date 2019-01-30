@@ -159,7 +159,9 @@ function baixarDades()
         dataType: "json",
         headers: {"Accept": "application/json"},
         success: function(response) {
-            alert("Success: " + response.result );
+            response = JSON.stringify(response);
+            alert(response);
+            alert("Result: " + response.result);
             if (response.result == "success") {
                 MensajePopup('OK', 'Les dades s´han rebut correctament', 4000);
                 var rebut = response.split("#");
