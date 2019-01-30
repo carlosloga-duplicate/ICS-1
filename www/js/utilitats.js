@@ -21,20 +21,29 @@ function Ahora()
 function constants(sCual)
 {
     var dict = {};
-    dict['urlServeiRES'] = "http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto";
+    var sRet = "";
+    try
+    {
+        dict['urlServeiRES'] = "http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto";
 
-    dict['ERRORGenerico'] = "S´ha produit un error ";
-    dict['ERROREnviant'] = "ERROR enviant les dades ";
-    dict['ERRORRevent'] = "ERROR rebent dades ";    
-    dict['ERRORFoto'] = "ERROR capturant foto ";
+        dict['ERRORGenerico'] = "S´ha produit un error ";
+        dict['ERROREnviant'] = "ERROR enviant les dades ";
+        dict['ERRORRevent'] = "ERROR rebent dades ";    
+        dict['ERRORFoto'] = "ERROR capturant foto ";
 
-    dict['OKEnviant'] = "Les dades s´han enviat correctament";
-    dict['OKRebent'] = "Les dades s´han rebut correctament";    
-    
-    dict['WAITRebent'] = "Rebent dades del servidor";
-    dict['WAITEnviant'] = "Enviant dades al servidor";
+        dict['OKEnviant'] = "Les dades s´han enviat correctament";
+        dict['OKRebent'] = "Les dades s´han rebut correctament";    
+        
+        dict['WAITRebent'] = "Rebent dades del servidor";
+        dict['WAITEnviant'] = "Enviant dades al servidor";
 
-    return dict[sCual];
+        sRet = dict[sCual].toString();
+    }
+    catch(err){
+        sRet = "constants: " + err.message; 
+    };
+
+    return sRet;
 }
 
 

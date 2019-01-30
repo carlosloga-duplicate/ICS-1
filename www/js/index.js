@@ -110,7 +110,7 @@ function onCapturePhoto(fileURI) {
 }
  
 function onFail(message) {
-    MensajePopup('KO', constants('ERROREnviant') + '\n' + message, 0);
+    MensajePopup('KO', constants("ERROREnviant") + "\n" + message, 0);
 }
 
 var OKfoto = function (r) {    
@@ -147,7 +147,8 @@ function MensajePopup(cual, txtMsg, esperar)
 
 function baixarDades()
 {
-    $('#pTxtAvis').html(constants('WAITRebent'));
+    alert(constants("WAITRebent"));
+    $('#pTxtAvis').html(constants("WAITRebent"));
     $('#Avis').show();
 
     usr = "CLG"
