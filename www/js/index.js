@@ -67,7 +67,7 @@ function clearCache() {
 }
 
 function capturePhoto() { 
-    $('#pTxtAvis').html("Enviant dades al servidor");
+    $('#pTxtAvis').html(constants('WAITEnviant'));
     $('#Avis').show();
     navigator.camera.getPicture(onCapturePhoto, onFail, {
         quality: 100,
@@ -92,13 +92,13 @@ function onCapturePhoto(fileURI) {
         } else {
             retries = 0;
             clearCache();
-            alert('S´ha produit un error');
+            alert(constants('ERRORFoto'));
         }
     }
  
     var options = new FileUploadOptions();
     options.fileKey = "file";
-    options.fileName = "Foto_" + Ahora() + ".jpeg";  //fileURI.substr(fileURI.lastIndexOf('/') + 1);
+    options.fileName = "Foto_" + Ahora() + ".jpeg";  
     options.mimeType = "image/jpeg"; 
     var params = {};
     params.p_camp1 = $("#txtCamp1").val();
@@ -106,15 +106,15 @@ function onCapturePhoto(fileURI) {
     params.p_camp3 = $("#txtCamp3").val();
     options.params = params;  
     var ft = new FileTransfer();
-    ft.upload(fileURI, encodeURI("http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto"), OKfoto, ERRORfoto, options);
+    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
 }
  
 function onFail(message) {
-    MensajePopup('KO', 'ERROR enviant les dades \n' + message, 0);
+    MensajePopup('KO', constants('ERROREnviant') + '\n' + message, 0);
 }
 
 var OKfoto = function (r) {    
-    MensajePopup('OK', 'Les dades s´han enviat correctament', 4000);
+    MensajePopup('OK', constants('OKEnviant'), 4000);
     $("#txtCamp1").val("");
     $("#txtCamp2").val("");
     $("#txtCamp3").val("");
@@ -147,20 +147,21 @@ function MensajePopup(cual, txtMsg, esperar)
 
 function baixarDades()
 {
-    $('#pTxtAvis').html("Rebent dades del servidor");
+    $('#pTxtAvis').html(constants('WAITRebent'));
     $('#Avis').show();
 
     usr = "CLG"
     pwd = "clg"
 
     $.ajax({
-        url: "http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto",
+        url: constants("urlServeiREST"),
         data: {"usu": escape(usr), "passw": escape(pwd) },
+        type: "GET",
         dataType: "json",
         headers: {"Accept": "application/json"},
         success: function(response, status) {
             response = JSON.stringify(response);
-            MensajePopup('OK', 'Les dades s´han rebut correctament', 4000);
+            MensajePopup('OK', constants('OKRebent'), 4000);
             var rebut = response.split("#");
             $("#txtCamp1").val("el " + rebut[0].split("|")[0] + " és " + rebut[0].split("|")[1]);
             $("#txtCamp2").val("el " + rebut[1].split("|")[0] + " és " + rebut[1].split("|")[1]);
@@ -169,7 +170,7 @@ function baixarDades()
         },
             error: function(request, status, error) { 
                 alert('error: ' + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders() );
-                MensajePopup('KO', 'ERROR: ' + status, 0);
+                MensajePopup('KO', constants('ERRORRevent') + status, 0);
         }
     });
 
