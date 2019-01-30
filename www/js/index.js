@@ -128,7 +128,7 @@ var ERRORfoto = function (error) {
 
 function MensajePopup(cual, txtMsg, esperar)
 {
-    $('#AvisEnviant').hide();
+    $('#Avis').hide();
     if(cual=='OK')
     {
         $("#AvisEnvioOK").popup();    
@@ -161,10 +161,12 @@ function baixarDades()
         success: function(response) {
             alert("Success: " + response);
             if (response.result == "success") {
-                MensajePopup('OK', 'Les dades s´han enviat correctament', 4000);
-                $("#txtCamp1").val("");
-                $("#txtCamp2").val("");
-                $("#txtCamp3").val("");
+                MensajePopup('OK', 'Les dades s´han rebut correctament', 4000);
+                var rebut = response.split("#");
+                $("#txtCamp1").val("el " + rebut[0].split("|")[0] + " és " + rebut[0].split("|")[1]);
+                $("#txtCamp2").val("el " + rebut[1].split("|")[0] + " és " + rebut[1].split("|")[1]);
+                if(rebut.length > 2)
+                    $("#txtCamp3").val("el " + rebut[2].split("|")[0] + " és " + rebut[2].split("|")[1]);
             }
             else {
                 alert("Success Error: " + response);
