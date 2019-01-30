@@ -24,7 +24,7 @@ function constants(sCual)
     var sRet = "";
     try
     {
-        dict['urlServeiRES'] = "http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto";
+        dict['urlServeiREST'] = "http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto";
 
         dict['ERRORGenerico'] = "S´ha produit un error ";
         dict['ERROREnviant'] = "ERROR enviant les dades ";
