@@ -67,7 +67,8 @@ function clearCache() {
 }
 
 function capturePhoto() { 
-    $('#AvisEnviant').show();
+    $('#pTxtAvis').html("Enviant dades al servidor");
+    $('#Avis').show();
     navigator.camera.getPicture(onCapturePhoto, onFail, {
         quality: 100,
         destinationType: destinationType.FILE_URI
@@ -143,3 +144,39 @@ function MensajePopup(cual, txtMsg, esperar)
         if(esperar > 0) setTimeout(function(){  $("#AvisEnvioKO").popup("close"); }, esperar);
     }
 }
+
+function baixarDades()
+{
+    $('#pTxtAvis').html("Rebent dades del servidor");
+    $('#Avis').show();
+
+    usr = "CLG"
+    pwd = "clg"
+
+    $.ajax({
+        url: "http://a200.ecap.intranet.gencat.cat/REST_1_ICS/api/Foto",
+        data: {"usu": escape(usr), "passw": escape(pwd) },
+        dataType: "json",
+        headers: {"Accept": "application/json"},
+        success: function(response) {
+            alert("Success: " + response);
+            if (response.result == "success") {
+                MensajePopup('OK', 'Les dades s´han enviat correctament', 4000);
+                $("#txtCamp1").val("");
+                $("#txtCamp2").val("");
+                $("#txtCamp3").val("");
+            }
+            else {
+                alert("Success Error: " + response);
+                MensajePopup('KO', response, 0);
+            }
+        },
+            error: function(request, status, error) { 
+                alert('error: ' + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders() );
+                MensajePopup('KO', 'ERROR: ' + status, 0);
+        }
+
+    });
+
+}
+

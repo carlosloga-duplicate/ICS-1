@@ -68,8 +68,12 @@
                 <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="capturePhoto();">Adjuntar foto i enviar</a>
             </div>
             <br/><br/>
-            <div id="AvisEnviant" name="AvisEnviant" class="blink" style="display: none; text-align: center;">
-                <p class="event listening">Enviant dades al servidor</p>
+            <div id="Avis" name="Avis" class="blink" style="display: none; text-align: center;">
+                <p id="pTxtAvis" name="pTxtAvis" class="event listening">...r</p>
+            </div>
+            <br/><br/>
+            <div id="divBotonGET" style="width: 100%; text-align: center;">
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="baixarDades();">Baixar dades del servidor</a>
             </div>
             <div data-role="popup" id="AvisEnvioOK" name="AvisEnvioOK" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #c7efc4;">
                 <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">OK</a>
