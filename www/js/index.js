@@ -92,7 +92,7 @@ function onCapturePhoto(fileURI) {
         } else {
             retries = 0;
             clearCache();
-            alert(constants('ERRORFoto'));
+            MensajePopup('KO', constants("ERRORFoto") + error, 0);            
         }
     }
  
@@ -147,7 +147,6 @@ function MensajePopup(cual, txtMsg, esperar)
 
 function baixarDades()
 {
-    alert(constants("WAITRebent"));
     $('#pTxtAvis').html(constants("WAITRebent"));
     $('#Avis').show();
 
@@ -170,8 +169,7 @@ function baixarDades()
                 $("#txtCamp3").val("el " + rebut[2].split("|")[0] + " és " + rebut[2].split("|")[1]);
         },
             error: function(request, status, error) { 
-                alert('error: ' + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders() );
-                MensajePopup('KO', constants('ERRORRevent') + status, 0);
+                MensajePopup('KO', constants('ERRORRevent') + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders(), 0);
         }
     });
 
