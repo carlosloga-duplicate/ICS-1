@@ -36,12 +36,19 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function() { 
         app.receivedEvent('deviceready');
-
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
-
+        
+        $.doTimeout(2000, function(){ 
+            cordova.getAppVersion.getVersionNumber(function (version) {
+                $("#tdPie").html("v." + version);    
+                $("#deviceready").hide();
+                $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
+                //$.mobile.changePage('#pagePrincipal', {transition: "flow"});  
+            });                   
+        });    
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -51,7 +58,6 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
     }
 
 };
@@ -60,12 +66,21 @@ function clearCache() {
     navigator.camera.cleanup();
 }
 
+function capturePhoto() { 
+    $('#pTxtAvis').html(constants('WAITEnviant'));
+    $('#Avis').show();
+    navigator.camera.getPicture(onCapturePhoto, onFail, {
+        quality: 100,
+        destinationType: destinationType.FILE_URI
+    });
+}
+
 var retries = 0;
 function onCapturePhoto(fileURI) {
     var win = function (r) {
         clearCache();
         retries = 0;
-        alert('Done!');
+        //alert('Done!');
     }
  
     var fail = function (error) {
@@ -77,27 +92,86 @@ function onCapturePhoto(fileURI) {
         } else {
             retries = 0;
             clearCache();
-            alert('Ups. Something wrong happens!');
+            MensajePopup('KO', constants("ERRORFoto") + error, 0);            
         }
     }
  
-    // var options = new FileUploadOptions();
-    // options.fileKey = "file";
-    // options.fileName = fileURI.substr(fileURI.lastIndexOf('/') + 1);
-    // options.mimeType = "image/jpeg";
-    // options.params = {}; // if we need to send parameters to the server request
-    // var ft = new FileTransfer();
-    // ft.upload(fileURI, encodeURI("http://host/upload"), win, fail, options);
-}
-
-function capturePhoto() {
-    navigator.camera.getPicture(onCapturePhoto, onFail, {
-        quality: 100,
-        destinationType: destinationType.FILE_URI
-    });
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = "Foto_" + Ahora() + ".jpeg";  
+    options.mimeType = "image/jpeg"; 
+    var params = {};
+    params.p_camp1 = $("#txtCamp1").val();
+    params.p_camp2 = $("#txtCamp2").val();
+    params.p_camp3 = $("#txtCamp3").val();
+    options.params = params;  
+    var ft = new FileTransfer();
+    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
 }
  
 function onFail(message) {
-    alert('Failed because: ' + message);
+    MensajePopup('KO', constants("ERROREnviant") + "\n" + message, 0);
+}
+
+var OKfoto = function (r) {    
+    MensajePopup('OK', constants('OKEnviant'), 4000);
+    $("#txtCamp1").val("");
+    $("#txtCamp2").val("");
+    $("#txtCamp3").val("");
+    // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
+}
+
+var ERRORfoto = function (error) {
+    MensajePopup('KO', 'ERROR: ' + error.code + ' desant en: ' + error.target, 0);
+    //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
+}
+
+function MensajePopup(cual, txtMsg, esperar)
+{
+    $('#Avis').hide();
+    if(cual=='OK')
+    {
+        $("#AvisEnvioOK").popup();    
+        $("#txtOK").html(txtMsg);
+        $("#AvisEnvioOK").popup("open");         
+        if(esperar > 0) setTimeout(function(){  $("#AvisEnvioOK").popup("close"); }, esperar);
+    }
+    else
+    {
+        $("#AvisEnvioKO").popup();    
+        $("#txtKO").html(txtMsg);
+        $("#AvisEnvioKO").popup("open"); 
+        if(esperar > 0) setTimeout(function(){  $("#AvisEnvioKO").popup("close"); }, esperar);
+    }
+}
+
+function baixarDades()
+{
+    $('#pTxtAvis').html(constants("WAITRebent"));
+    $('#Avis').show();
+
+    usr = "CLG"
+    pwd = "clg"
+
+    $.ajax({
+        url: constants("urlServeiREST"),
+        data: {"usu": escape(usr), "passw": escape(pwd) },
+        type: "GET",
+        dataType: "json",
+        headers: {"Accept": "application/json"},
+        success: function(response, status) {
+            response = JSON.stringify(response);
+            MensajePopup('OK', constants('OKRebent'), 4000);
+            var rebut = response.split("#");
+            $("#txtCamp1").val("el " + rebut[0].split("|")[0] + " és " + rebut[0].split("|")[1]);
+            $("#txtCamp2").val("el " + rebut[1].split("|")[0] + " és " + rebut[1].split("|")[1]);
+            if(rebut.length > 2)
+                $("#txtCamp3").val("el " + rebut[2].split("|")[0] + " és " + rebut[2].split("|")[1]);
+        },
+            error: function(request, status, error) { 
+                MensajePopup('KO', constants('ERRORRevent') + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders(), 0);
+        }
+    });
+
 }
 

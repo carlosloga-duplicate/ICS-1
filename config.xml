@@ -1,15 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.ICS-1" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.ics.ICS-1" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>ICS-1</name>
     <description>
-        Envia foto i paràmetres a un servei REST en a200
+        Envia i rep dades i foto des del servei REST_1_ICS  en a200
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="suport@ics.gencat.cat" href="http://ics.gencat.cat/es/inici/index.html">
+        ICS
     </author>
     <content src="index.html" />
+    <preference name="permissions" value="none" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
+    <preference name="fullscreen" value="false" />  <!--si se pone fullscreen a true se oculta la barra de estado de la parte superior -->
+	<preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+	<preference name="prerendered-icon" value="true" />
+	<preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="false" />
+	<preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="disable-cursor" value="false" />
+	<preference name="android-installLocation" value="auto" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
@@ -31,6 +44,31 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-app-version" source="npm" spec="~0.1.9"/>    
+    <plugin name="cordova-plugin-fullscreen" source="npm" version="~1.1.0" />
+        <!-- ocultar statusbar en ios -->
+    <plugin name="cordova-plugin-statusbar-hide-on-startup" source="npm"/>
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <feature name="Media">
+        <param name="ios-package" value="CDVSound" />
+        <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="ios-package" value="CDVFile" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher"/>
+    </feature>
+    <!--inicializaciones para detectar si hay conexión -->
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <icon src="icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />

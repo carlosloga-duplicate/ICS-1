@@ -1,0 +1,37 @@
+{
+  "name": "cordova-plugin-statusbar-hide-on-startup",
+  "version": "0.1.7",
+  "author": "Seva Safris",
+  "description": "Cordova plugin to hide the statusbar on startup for iOS devices.",
+  "cordova": {
+    "id": "cordova-plugin-statusbar-hide-on-startup",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SevaSafris/cordova-plugin-statusbar-hide-on-startup.git"
+  },
+  "keywords": [
+    "cordova",
+    "ios",
+    "app",
+    "statusbar",
+    "hide",
+    "startup",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SevaSafris/cordova-plugin-statusbar-hide-on-startup/issues"
+  },
+  "homepage": "https://github.com/SevaSafris/cordova-plugin-statusbar-hide-on-startup#readme"
+}

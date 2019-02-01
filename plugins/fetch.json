@@ -158,5 +158,29 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-app-version": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-app-version@~0.1.9"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-fullscreen": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-fullscreen@~1.1.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar-hide-on-startup": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-statusbar-hide-on-startup"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
