@@ -53,11 +53,12 @@
 
     <div data-role="page" id="pagePrincipal" data-theme="a" >
         <div data-role="header"  data-theme="a" style="border: 0px">            
-            <table><tr><td><img src="img/logo.png" width="35"/></td><td style="text-align: center; width: 100%;"><label style="font-size:medium; font-weight: bold;">Enviament de dades</label></td></tr></table>
+            <table><tr><td><img src="img/logo.png" width="35"/></td><td style="text-align: center; width: 100%;">
+                <label style="font-size:medium; font-weight: bold;">FOTOS INMEDIATES</label></td></tr></table>
         </div>
         <div data-role="content" data-theme="a">
             <br/>
-            <table style="width: 98%;">
+            <table style="width: 99%;">
                 <tr>
                     <td style="width: 50%;"><label for="text-basic">Usuari</label></td>
                     <td style="width: 50%;"><label for="text-basic">Sector</label></td>                    
@@ -71,7 +72,7 @@
                     <td style="width: 50%;"><a href="#" id="botonGuardaDatosUSU" name="botonGuardaDatosUSU" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="guardaUsuSector();">Guardar</a></td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="width: 100%;"><input type="text" name="txtCampOBS" id="txtCampOBS" value=""></td>
+                    <td colspan="2" style="width: 100%;"><textarea name="txtCampOBS" id="txtCampOBS" value="" rows="4"></td>
                 <tr>
             </table>
             <br/>
@@ -80,7 +81,7 @@
             </div>
             <br/><br/>
             <div id="Avis" name="Avis" class="blink" style="display: none; text-align: center;">
-                <p id="pTxtAvis" name="pTxtAvis" class="event listening">...r</p>
+                <p id="pTxtAvis" name="pTxtAvis" class="event listening">...</p>
             </div>
             <br/><br/>
 <!--             <div id="divBotonGET" style="width: 100%; text-align: center;">

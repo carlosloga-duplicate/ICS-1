@@ -75,9 +75,14 @@ var app = {
                     }
                     else
                     {
-                        $("#botonGuardaDatosUSU").hide();                         
-                        $('#txtCampUSU').prop('style', "border: none !important;");
-                        $('#txtCampSECTOR').prop('style', "border: none !important;");
+                        $("#botonGuardaDatosUSU").hide();                
+
+                        $('#txtCampUSU').prop('class', "");
+                        $('#txtCampUSU').prop('style', "border:none !important;");
+                        
+                        $('#txtCampSECTOR').prop('class', "");                              
+                        $('#txtCampSECTOR').prop('style', "border:none !important;");
+                        
                         var sUsu = datosUsu.split("|")[0]; 
                         var sSector = datosUsu.split("|")[1];                        
                         $("#txtCampUSU").val(sUsu);
