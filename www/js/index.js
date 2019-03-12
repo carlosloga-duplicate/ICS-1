@@ -61,7 +61,6 @@ var app = {
                 //DEBUG:
                 if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
                 {   
-                    alert('undef!');
                     datosUsu = "carlos|4321";
                     mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
                     $("txtCampUSU").removeAttr("readonly");
@@ -69,8 +68,7 @@ var app = {
                     $("botonGuardaDatosUSU").attr("display","block");    
                 }
                 else
-                {
-                    alert('no undef!');                                        
+                {                                 
                     if(datosUsu.startsWith("ERROR")) 
                     {
                         alert(datosUsu);
@@ -78,11 +76,21 @@ var app = {
                     }
                     else
                     {
-                        alert("X" + datosUsu + "X");
-                        var sUsu = datosUsu.split("|")[0]; 
-                        var sSector = datosUsu.split("|")[1];                        
-                        $("#txtCampUSU").val(sUsu);
-                        $("#txtCampSECTOR").val(sSector);
+                        if(datosUsu == "null|null")
+                        {
+                            datosUsu = "carlos|4321";
+                            //mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
+                            $("txtCampUSU").removeAttr("readonly");
+                            $("txtCampSECTOR").removeAttr("readonly");
+                            $("botonGuardaDatosUSU").attr("display","block");  
+                        }
+                        else
+                        {
+                            var sUsu = datosUsu.split("|")[0]; 
+                            var sSector = datosUsu.split("|")[1];                        
+                            $("#txtCampUSU").val(sUsu);
+                            $("#txtCampSECTOR").val(sSector);
+                        }
                     }
                 }
                 alert('2: ' + datosUSU);
