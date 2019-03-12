@@ -56,7 +56,7 @@ function onCapturePhoto(fileURI) {
     var params = {};
     params.p_camp1 = $("#txtCampUSU").val();
     params.p_camp2 = $("#txtCampSECTOR").val();
-    params.p_camp3 = $("#txtCampOBS").val();
+    params.p_camp3 = $("textarea#txtCampOBS").val();
     options.params = params;  
     var ft = new FileTransfer();
     ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
