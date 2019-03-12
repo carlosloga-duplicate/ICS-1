@@ -43,10 +43,10 @@ var app = {
         
         $.doTimeout(2000, function(){ 
             cordova.getAppVersion.getVersionNumber(function (version) {
-                $("#tdPie").html("v." + version + " - DEBUG");                    
+                $("#tdPie").html("v." + version);                    
                 $("#deviceready").hide();
-
-                alert('recuperaDatosUSU'); 
+                
+                $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
 
                 var datosUsu = "";
                 try
@@ -60,8 +60,7 @@ var app = {
 
                 //DEBUG:
                 if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
-                {   
-                    $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
+                {                       
                     mensajePopup("KO", "Mòvil no  configurat. Informi usuari i sector si us plau", 0);
                     $('#txtCampUSU').prop('readonly', false);
                     $('#txtCampSECTOR').prop('readonly', false);                                        
@@ -70,17 +69,15 @@ var app = {
                 {                                 
                     if(datosUsu.startsWith("ERROR")) 
                     {
-                        $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                         mensajePopup("KO", datosUsu, 0);
                         $('#txtCampUSU').prop('readonly', false);
                         $('#txtCampSECTOR').prop('readonly', false); 
                     }
                     else
                     {
-                        $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                         $("#botonGuardaDatosUSU").hide();                         
-                        $('#txtCampUSU').prop('class', "ui-btn { border: none !important; }");
-                        $('#txtCampSECTOR').prop('class', "ui-btn { border: none !important; }");
+                        $('#txtCampUSU').prop('style', "border: none !important;");
+                        $('#txtCampSECTOR').prop('style', "border: none !important;");
                         var sUsu = datosUsu.split("|")[0]; 
                         var sSector = datosUsu.split("|")[1];                        
                         $("#txtCampUSU").val(sUsu);
