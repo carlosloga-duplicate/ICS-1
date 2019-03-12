@@ -48,7 +48,7 @@ var app = {
 
                 alert('recuperaDatosUSU'); 
 
-                var datosUsu = "-";
+                var datosUsu = "";
                 try
                 {
                     datosUsu = recuperaDatosUSU();                 
@@ -61,17 +61,15 @@ var app = {
                 //DEBUG:
                 if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
                 {   
-                    datosUsu = "carlos|4321";
                     $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
-                    mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
+                    mensajePopup("KO", "Mòvil no  configurat. Informi usuari i sector si us plau", 0);
                     $('#txtCampUSU').prop('readonly', false);
-                    $('#txtCampSECTOR').prop('readonly', false);                    
+                    $('#txtCampSECTOR').prop('readonly', false);                                        
                 }
                 else
                 {                                 
                     if(datosUsu.startsWith("ERROR")) 
                     {
-                        datosUsu = "carlos|4321";
                         $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                         mensajePopup("KO", datosUsu, 0);
                         $('#txtCampUSU').prop('readonly', false);
@@ -79,23 +77,14 @@ var app = {
                     }
                     else
                     {
-                        if(datosUsu == "null|null")
-                        {
-                            datosUsu = "carlos|4321";
-                            $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
-                            mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
-                            $('#txtCampUSU').prop('readonly', false);
-                            $('#txtCampSECTOR').prop('readonly', false);
-                        }
-                        else
-                        {
-                            $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
-                            $("#botonGuardaDatosUSU").hide(); 
-                            var sUsu = datosUsu.split("|")[0]; 
-                            var sSector = datosUsu.split("|")[1];                        
-                            $("#txtCampUSU").val(sUsu);
-                            $("#txtCampSECTOR").val(sSector);
-                        }
+                        $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
+                        $("#botonGuardaDatosUSU").hide();                         
+                        $('#txtCampUSU').prop('class', "ui-btn { border: none !important; }");
+                        $('#txtCampSECTOR').prop('class', "ui-btn { border: none !important; }");
+                        var sUsu = datosUsu.split("|")[0]; 
+                        var sSector = datosUsu.split("|")[1];                        
+                        $("#txtCampUSU").val(sUsu);
+                        $("#txtCampSECTOR").val(sSector);                        
                     }
                 }             
  
