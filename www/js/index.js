@@ -64,21 +64,20 @@ var app = {
                     datosUsu = "carlos|4321";
                     $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                     mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
-                    $("txtCampUSU").removeAttr("readonly");
-                    $("txtCampSECTOR").removeAttr("readonly");
-                    $("botonGuardaDatosUSU").attr("display","block");    
+                    $('#txtCampUSU').prop('readonly', false);
+                    $('#txtCampSECTOR').prop('readonly', false);
+                    $("#botonGuardaDatosUSU").attr("display","block");    
                 }
                 else
                 {                                 
                     if(datosUsu.startsWith("ERROR")) 
                     {
-                        alert(datosUsu);
                         datosUsu = "carlos|4321";
                         $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                         mensajePopup("KO", datosUsu, 0);
-                        $("txtCampUSU").removeAttr("readonly");
-                        $("txtCampSECTOR").removeAttr("readonly");
-                        $("botonGuardaDatosUSU").attr("display","block");  
+                        $('#txtCampUSU').prop('readonly', false);
+                        $('#txtCampSECTOR').prop('readonly', false);
+                        $("#botonGuardaDatosUSU").attr("display","block");  
                     }
                     else
                     {
@@ -87,9 +86,9 @@ var app = {
                             datosUsu = "carlos|4321";
                             $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                             mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
-                            $("txtCampUSU").removeAttr("readonly");
-                            $("txtCampSECTOR").removeAttr("readonly");
-                            $("botonGuardaDatosUSU").attr("display","block");  
+                            $('#txtCampUSU').prop('readonly', false);
+                            $('#txtCampSECTOR').prop('readonly', false);
+                            $("#botonGuardaDatosUSU").attr("display","block");  
                         }
                         else
                         {
