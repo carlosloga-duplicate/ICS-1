@@ -46,4 +46,21 @@ function constants(sCual)
     return sRet;
 }
 
-
+function mensajePopup(cual, txtMsg, esperar)
+{
+    $('#Avis').hide();
+    if(cual=='OK')
+    {
+        $("#AvisEnvioOK").popup();    
+        $("#txtOK").html(txtMsg);
+        $("#AvisEnvioOK").popup("open");         
+        if(esperar > 0) setTimeout(function(){  $("#AvisEnvioOK").popup("close"); }, esperar);
+    }
+    else
+    {
+        $("#AvisEnvioKO").popup();    
+        $("#txtKO").html(txtMsg);
+        $("#AvisEnvioKO").popup("open"); 
+        if(esperar > 0) setTimeout(function(){  $("#AvisEnvioKO").popup("close"); }, esperar);
+    }
+}
