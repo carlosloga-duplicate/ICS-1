@@ -11,7 +11,10 @@ function recuperaDatosUSU()
     try{
         var sUsu = localStorage.getItem('USU');
         var sSector = localStorage.getItem('SECTOR');
-        return sUsu + "|" + sSector;
+        if(sUsu == null || sSector == null)
+            return "ERROR: No s´ha trobat usuari/sector configurat en aquest mòvil. Informi´ls si us plau";
+        else
+            return sUsu + "|" + sSector;
     }
     catch(err)
     {

@@ -62,6 +62,7 @@ var app = {
                 if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
                 {   
                     datosUsu = "carlos|4321";
+                    $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                     mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
                     $("txtCampUSU").removeAttr("readonly");
                     $("txtCampSECTOR").removeAttr("readonly");
@@ -72,20 +73,27 @@ var app = {
                     if(datosUsu.startsWith("ERROR")) 
                     {
                         alert(datosUsu);
+                        datosUsu = "carlos|4321";
+                        $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                         mensajePopup("KO", datosUsu, 0);
+                        $("txtCampUSU").removeAttr("readonly");
+                        $("txtCampSECTOR").removeAttr("readonly");
+                        $("botonGuardaDatosUSU").attr("display","block");  
                     }
                     else
                     {
                         if(datosUsu == "null|null")
                         {
                             datosUsu = "carlos|4321";
-                            //mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
+                            $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
+                            mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
                             $("txtCampUSU").removeAttr("readonly");
                             $("txtCampSECTOR").removeAttr("readonly");
                             $("botonGuardaDatosUSU").attr("display","block");  
                         }
                         else
                         {
+                            mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
                             var sUsu = datosUsu.split("|")[0]; 
                             var sSector = datosUsu.split("|")[1];                        
                             $("#txtCampUSU").val(sUsu);
@@ -93,9 +101,7 @@ var app = {
                         }
                     }
                 }
-                alert('2: ' + datosUSU);
-
-                $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
+                alert('2: ' + datosUSU);                
  
             });                   
         });    
