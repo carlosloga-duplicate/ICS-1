@@ -45,15 +45,26 @@ var app = {
             cordova.getAppVersion.getVersionNumber(function (version) {
                 $("#tdPie").html("v." + version + " - DEBUG");    
                 
-                //$("#deviceready").hide();
+                $("#deviceready").hide();
                 alert('recuperaDatosUSU');
-                var datosUsu = recuperaDatosUSU();
+                var datosUsu = "-";
+                try
+                {
+                    datosUsu = recuperaDatosUSU();   
+                    alert('NO Error');                  
+                }
+                catch(err)
+                {
+                    alert('ERROR: ' + err.message);
+                    datosUsu = "carlos|4321";
+                }
                 alert(datosUSU);
 
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
 
                 var sUsu = datosUsu.split("|")[0]; 
-                var sSector = datosUsu.split("|")[1]; 
+                var sSector = datosUsu.split("|")[1];
+
                 $("#txtCampUSU").val(sUsu);
                 $("#txtCampSECTOR").val(sSector);
 /*                 if(datosUSU=="")

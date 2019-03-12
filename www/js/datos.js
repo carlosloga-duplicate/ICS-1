@@ -13,6 +13,13 @@ function recuperaDatosUSU()
     return sUsu + "|" + sSector;
 }
 
+function guardaUsuSector()
+{
+    var sUsu = $("#txtCampUSU").val();
+    var sSector = $("#txtCampSECTOR").val();
+    guardaDatosUSU(sUsu,sSector);
+}
+
 function baixarDades()
 {
     $('#pTxtAvis').html(constants("WAITRebent"));
