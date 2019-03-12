@@ -65,8 +65,7 @@ var app = {
                     $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                     mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
                     $('#txtCampUSU').prop('readonly', false);
-                    $('#txtCampSECTOR').prop('readonly', false);
-                    $("#botonGuardaDatosUSU").attr("display","block");    
+                    $('#txtCampSECTOR').prop('readonly', false);                    
                 }
                 else
                 {                                 
@@ -76,8 +75,7 @@ var app = {
                         $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
                         mensajePopup("KO", datosUsu, 0);
                         $('#txtCampUSU').prop('readonly', false);
-                        $('#txtCampSECTOR').prop('readonly', false);
-                        $("#botonGuardaDatosUSU").attr("display","block");  
+                        $('#txtCampSECTOR').prop('readonly', false); 
                     }
                     else
                     {
@@ -88,19 +86,18 @@ var app = {
                             mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
                             $('#txtCampUSU').prop('readonly', false);
                             $('#txtCampSECTOR').prop('readonly', false);
-                            $("#botonGuardaDatosUSU").attr("display","block");  
                         }
                         else
                         {
-                            mensajePopup("KO", "No s´ha trobat l´usuari/sector en aquest mòvil. Informi´ls si us plau", 0);
+                            $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
+                            $("#botonGuardaDatosUSU").hide(); 
                             var sUsu = datosUsu.split("|")[0]; 
                             var sSector = datosUsu.split("|")[1];                        
                             $("#txtCampUSU").val(sUsu);
                             $("#txtCampSECTOR").val(sSector);
                         }
                     }
-                }
-                alert('2: ' + datosUSU);                
+                }             
  
             });                   
         });    
