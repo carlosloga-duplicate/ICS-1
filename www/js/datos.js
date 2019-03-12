@@ -8,9 +8,15 @@ function guardaDatosUSU(sUsu, sSector)
 
 function recuperaDatosUSU()
 {
-    var sUsu = localStorage.getItem('USU');
-    var sSector = localStorage.getItem('SECTOR');
-    return sUsu + "|" + sSector;
+    try{
+        var sUsu = localStorage.getItem('USU');
+        var sSector = localStorage.getItem('SECTOR');
+        return sUsu + "|" + sSector;
+    }
+    catch(err)
+    {
+        return 'ERROR recuperant l´usuari/sector d´aquest mòvil: ' + err.message;
+    }
 }
 
 function guardaUsuSector()

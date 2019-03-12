@@ -43,10 +43,11 @@ var app = {
         
         $.doTimeout(2000, function(){ 
             cordova.getAppVersion.getVersionNumber(function (version) {
-                $("#tdPie").html("v." + version + " - DEBUG");    
-                
+                $("#tdPie").html("v." + version + " - DEBUG");                    
                 $("#deviceready").hide();
-                alert('recuperaDatosUSU');
+
+                alert('recuperaDatosUSU'); 
+
                 var datosUsu = "-";
                 try
                 {
@@ -54,15 +55,19 @@ var app = {
                 }
                 catch(err)
                 {
-                    alert('ERROR recuperant l´usuari/sector d´aquest mòvil: ' + err.message);
+                    mensajePopup("KO", 'ERROR recuperant l´usuari/sector d´aquest mòvil: ' + err.message, 0);
                 }
 
                 //DEBUG:
-                if(datosUsu == null || datosUsu.length < 1)
+                if(datosUsu == undefined)  //compara si null o es undefined (la function no devolvió nada) 
                 {
                     datosUsu = "carlos|4321";
                 }
-                alert(datosUSU);
+                else
+                {
+                    if(datosUsu.startsWith("ERROR")) mensajePopup("KO", datosUsu, 0);
+                }
+                alert('2: ' + datosUSU);
 
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
 
