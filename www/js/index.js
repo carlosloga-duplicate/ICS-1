@@ -54,7 +54,7 @@ var app = {
                 }
                 catch(err)
                 {
-                    alert('ERROR recuperant l''usuari/sector d''aquest mòvil: ' + err.message);
+                    alert('ERROR recuperant l´usuari/sector d´aquest mòvil: ' + err.message);
                 }
 
                 //DEBUG:
@@ -66,8 +66,16 @@ var app = {
 
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
 
-                var sUsu = datosUsu.split("|")[0]; 
-                var sSector = datosUsu.split("|")[1];
+                if(datosUsu == null || datosUsu.length < 1)
+                {
+                    $("txtCampUSU").removeAttr("readonly");
+                    $("txtCampSECTOR").removeAttr("readonly");
+                    $("botonGuardaDatosUSU").attr("display","block");
+                }
+                else{
+                    var sUsu = datosUsu.split("|")[0]; 
+                    var sSector = datosUsu.split("|")[1];
+                }
 
                 $("#txtCampUSU").val(sUsu);
                 $("#txtCampSECTOR").val(sSector);

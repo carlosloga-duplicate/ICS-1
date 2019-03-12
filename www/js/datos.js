@@ -18,6 +18,9 @@ function guardaUsuSector()
     var sUsu = $("#txtCampUSU").val();
     var sSector = $("#txtCampSECTOR").val();
     guardaDatosUSU(sUsu,sSector);
+    $("txtCampUSU").attr("readonly",true);
+    $("txtCampSECTOR").attr("readonly",true);
+    $("botonGuardaDatosUSU").attr("display","none");
 }
 
 function baixarDades()
