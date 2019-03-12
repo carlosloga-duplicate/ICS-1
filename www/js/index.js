@@ -50,12 +50,16 @@ var app = {
                 var datosUsu = "-";
                 try
                 {
-                    datosUsu = recuperaDatosUSU();   
-                    alert('NO Error');                  
+                    datosUsu = recuperaDatosUSU();                 
                 }
                 catch(err)
                 {
-                    alert('ERROR: ' + err.message);
+                    alert('ERROR recuperant l''usuari/sector d''aquest mòvil: ' + err.message);
+                }
+
+                //DEBUG:
+                if(datosUsu == null || datosUsu.length < 1)
+                {
                     datosUsu = "carlos|4321";
                 }
                 alert(datosUSU);
