@@ -59,7 +59,7 @@ var app = {
                 }
 
                 //DEBUG:
-                if(datosUsu == undefined)  //compara si null o es undefined (la function no devolvió nada) 
+                if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
                 {   
                     alert('undef!');
                     datosUsu = "carlos|4321";
@@ -70,11 +70,15 @@ var app = {
                 }
                 else
                 {
-                    alert('no undef!');
+                    alert('no undef!');                                        
                     if(datosUsu.startsWith("ERROR")) 
+                    {
+                        alert(datosUsu);
                         mensajePopup("KO", datosUsu, 0);
+                    }
                     else
                     {
+                        alert("X" + datosUsu + "X");
                         var sUsu = datosUsu.split("|")[0]; 
                         var sSector = datosUsu.split("|")[1];                        
                         $("#txtCampUSU").val(sUsu);
