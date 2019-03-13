@@ -54,7 +54,8 @@
     <div data-role="page" id="pagePrincipal" data-theme="a" >
         <div data-role="header"  data-theme="a" style="border: 0px">            
             <table><tr><td><img src="img/logo.png" width="35"/></td><td style="text-align: center; width: 100%;">
-                <label style="font-size:medium; font-weight: bold;">FOTOS INMEDIATES</label></td></tr></table>
+                <label style="font-size:medium; font-weight: bold;">FOTOS INMEDIATES</label></td></tr>
+            </table>
         </div>
         <div data-role="content" data-theme="a">
             <br/>
@@ -77,14 +78,15 @@
             </table>
             <br/>
             <div id="divBotonEnviar" style="width: 100%; text-align: center;">
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="capturePhoto();">Adjuntar foto i enviar</a>
+                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="capturePhoto(); return false;">Adjuntar foto i enviar</a>
             </div>
-            <br/><br/>
+            <br/>            
             <div id="Avis" name="Avis" class="blink" style="display: none; text-align: center;">
                 <p id="pTxtAvis" name="pTxtAvis" class="event listening">...</p>
             </div>
-            <br/><br/>
-<!--             <div id="divBotonGET" style="width: 100%; text-align: center;">
+            <!-- 
+            <br/>
+            <div id="divBotonGET" style="width: 100%; text-align: center;">
                 <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="baixarDades();">Baixar dades del servidor</a>
             </div> -->
             <div data-role="popup" id="AvisEnvioOK" name="AvisEnvioOK" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #c7efc4;">
