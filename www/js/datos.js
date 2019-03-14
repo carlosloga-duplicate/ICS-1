@@ -32,6 +32,13 @@ function guardaUsuSector()
     $("#botonGuardaDatosUSU").hide(); 
 }
 
+function cambiaUsuSector()
+{
+    $('#txtCampUSU').prop('readonly', false);
+    $('#txtCampSECTOR').prop('readonly', false); 
+    $("#botonGuardaDatosUSU").show();  
+}
+
 function baixarDades()
 {
     $('#pTxtAvis').html(constants("WAITRebent"));
