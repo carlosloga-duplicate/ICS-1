@@ -87,7 +87,7 @@ var app = {
             var direction = data.state.direction;
             if (direction == 'back') {
                 mensajePopup("KO", "Sortint ...", 2000);
-                navigator.app.exitApp();
+                setTimeout(function(){ navigator.app.exitApp(); }, 2500);                
             }
         });
     },
