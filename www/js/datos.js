@@ -5,13 +5,22 @@ function EstadoUSUsector(bVer)
     {
         $('#txtCampUSU').prop('readonly', false);
         $('#txtCampSECTOR').prop('readonly', false);
+        $('#txtCampUSU').prop('style', "background-color:white;"); 
+        $('#txtCampSECTOR').prop('style', "background-color:white;"); 
         $("#trBotonGuardaDatosUSU").show();   
     }
     else
     {
+        $("#trBotonGuardaDatosUSU").hide();
         $('#txtCampUSU').prop('readonly', true);
         $('#txtCampSECTOR').prop('readonly', true);
-        $("#trBotonGuardaDatosUSU").hide();   
+
+        $('#txtCampUSU').prop('class', "");
+        $('#txtCampUSU').prop('style', "border:none !important;"); 
+        $('#txtCampUSU').prop('style', "background-color:silver;");           
+        $('#txtCampSECTOR').prop('class', "");                              
+        $('#txtCampSECTOR').prop('style', "border:none !important;");           
+        $('#txtCampSECTOR').prop('style', "background-color:silver;"); 
     }
 }
 

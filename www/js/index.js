@@ -58,33 +58,21 @@ var app = {
                     mensajePopup("KO", constants('ERRORConfig') + err.message, 0);
                 }
 
-                //DEBUG:
                 if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
                 {                       
                     mensajePopup("KO", constants('NOConfig'), 0);
-                    $('#txtCampUSU').prop('readonly', false);
-                    $('#txtCampSECTOR').prop('readonly', false);      
-                    $("#trBotonGuardaDatosUSU").show();                               
+                    EstadoUSUsector(true);                             
                 }
                 else
                 {                                 
                     if(datosUsu.startsWith("ERROR")) 
                     {
                         mensajePopup("KO", datosUsu, 0);
-                        $('#txtCampUSU').prop('readonly', false);
-                        $('#txtCampSECTOR').prop('readonly', false); 
-                        $("#trBotonGuardaDatosUSU").show();   
+                        EstadoUSUsector(true);     
                     }
                     else
                     {
-                        $("#trBotonGuardaDatosUSU").hide();    //$("#botonGuardaDatosUSU").hide();                
-
-                        $('#txtCampUSU').prop('class', "");
-                        $('#txtCampUSU').prop('style', "border:none !important;");
-                        
-                        $('#txtCampSECTOR').prop('class', "");                              
-                        $('#txtCampSECTOR').prop('style', "border:none !important;");
-                        
+                        EstadoUSUsector(false);                                         
                         var sUsu = datosUsu.split("|")[0]; 
                         var sSector = datosUsu.split("|")[1];                        
                         $("#txtCampUSU").val(sUsu);
