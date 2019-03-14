@@ -58,11 +58,11 @@
                     <td style="width: 10%;">
                         <img src="img/logo.png" width="35"/></td><td style="text-align: left; width: 100%;">
                     </td>
-                    <td style="width: 80%; text-align: center;">
+                    <td style="width: 80%; text-align: left;">
                         <label style="font-size:medium; font-weight: bold;">FOTOS INMEDIATES</label>
                     </td>    
                     <td style="width: 10%; text-align: right;">
-                        <a href="#" id="botonCambiaDatosUSU" name="botonGuardaDatosUSU" data-mini="true" data-role="button" data-inline="true" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" data-icon="gear" onclick="cambiaUsuSector();"></a>
+                        <a href="#" id="botonCambiaDatosUSU" name="botonGuardaDatosUSU" data-mini="true" data-role="button" data-inline="true"  data-icon="gear" onclick="cambiaUsuSector();"></a>    <!-- class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" -->
                     </td>
                 </tr>
             </table>
@@ -77,17 +77,18 @@
                     <tr>
                         <td style="width: 50%;"><input type="text" name="txtCampUSU" id="txtCampUSU" data-mini="true" readonly></td>
                         <td style="width: 50%;"><input type="text" name="txtCampSECTOR" id="txtCampSECTOR" data-mini="true" readonly></td>
-                    </tr>         
+                    </tr>   
+                    <tr id="trBotonGuardaDatosUSU" name="trBotonGuardaDatosUSU"><td colspan="2" style="background-color: silver; text-align: center;"><a href="#" data-mini="true" id="botonGuardaDatosUSU" data-inline="true" data-role="button" name="botonGuardaDatosUSU" onclick="guardaUsuSector();">Guardar</a></td></tr>      
                 </table>
             </div>
+            <br/>
             <div>
                 <table style="width: 99%;"></table>     
                     <tr>
-                        <td style="width: 40%;"><label for="text-basic">Observacions</label></td>
-                        <td style="width: 59%; background-color: silver;"><a href="#" data-mini="true" id="botonGuardaDatosUSU" data-inline="true" data-role="button" name="botonGuardaDatosUSU" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="guardaUsuSector();">Guardar</a></td>
+                        <td><label for="text-basic">Observacions</label></td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="width: 100%;"><textarea name="txtCampOBS" id="txtCampOBS" data-mini="true" value="" rows="4" height="150px"></textarea></td>
+                        <td style="width: 100%;"><textarea name="txtCampOBS" id="txtCampOBS" data-mini="true" value="" rows="4" height="150px"></textarea></td>
                     <tr>
                 </table>
             </div>

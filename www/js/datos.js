@@ -12,7 +12,7 @@ function recuperaDatosUSU()
         var sUsu = localStorage.getItem('USU');
         var sSector = localStorage.getItem('SECTOR');
         if(sUsu == null || sSector == null)
-            return "ERROR: Mòvil no  configurat. Informi usuari i sector si us plau";
+            return "ERROR: Mòvil no configurat. Informi usuari i sector si us plau";
         else
             return sUsu + "|" + sSector;
     }
@@ -29,14 +29,14 @@ function guardaUsuSector()
     guardaDatosUSU(sUsu,sSector);
     $('#txtCampUSU').prop('readonly', true);
     $('#txtCampSECTOR').prop('readonly', true);
-    $("#botonGuardaDatosUSU").hide(); 
+    $("#trBotonGuardaDatosUSU").hide();    //$("#botonGuardaDatosUSU").hide(); 
 }
 
 function cambiaUsuSector()
 {
     $('#txtCampUSU').prop('readonly', false);
     $('#txtCampSECTOR').prop('readonly', false); 
-    $("#botonGuardaDatosUSU").show();  
+    $("#trBotonGuardaDatosUSU").show();    //$("#botonGuardaDatosUSU").show();  
 }
 
 function baixarDades()

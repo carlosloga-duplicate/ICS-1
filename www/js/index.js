@@ -45,7 +45,7 @@ var app = {
             cordova.getAppVersion.getVersionNumber(function (version) {
                 $("#tdPie").html("v." + version);                    
                 $("#deviceready").hide();
-                
+                $("#trBotonGuardaDatosUSU").hide();
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
 
                 var datosUsu = "";
@@ -63,7 +63,8 @@ var app = {
                 {                       
                     mensajePopup("KO", "Mòvil no  configurat. Informi usuari i sector si us plau", 0);
                     $('#txtCampUSU').prop('readonly', false);
-                    $('#txtCampSECTOR').prop('readonly', false);                                        
+                    $('#txtCampSECTOR').prop('readonly', false);      
+                    $("#trBotonGuardaDatosUSU").show();                               
                 }
                 else
                 {                                 
@@ -72,10 +73,11 @@ var app = {
                         mensajePopup("KO", datosUsu, 0);
                         $('#txtCampUSU').prop('readonly', false);
                         $('#txtCampSECTOR').prop('readonly', false); 
+                        $("#trBotonGuardaDatosUSU").show();   
                     }
                     else
                     {
-                        $("#botonGuardaDatosUSU").hide();                
+                        $("#trBotonGuardaDatosUSU").hide();    //$("#botonGuardaDatosUSU").hide();                
 
                         $('#txtCampUSU').prop('class', "");
                         $('#txtCampUSU').prop('style', "border:none !important;");
