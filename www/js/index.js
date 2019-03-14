@@ -81,7 +81,14 @@ var app = {
                 }             
  
             });                   
-        });    
+        }); 
+        
+        $(document).on("navigate", function (event, data) {
+            var direction = data.state.direction;
+            if (direction == 'back') {
+                navigator.app.exitApp();
+            }
+        });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -90,7 +97,7 @@ var app = {
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        receivedElement.setAttribute('style', 'display:block;');        
     }
 
 };
