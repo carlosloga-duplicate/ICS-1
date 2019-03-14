@@ -7,6 +7,10 @@ function EstadoUSUsector(bVer)
         $('#txtCampSECTOR').prop('readonly', false);
         $('#txtCampUSU').prop('style', "background-color:white;"); 
         $('#txtCampSECTOR').prop('style', "background-color:white;"); 
+
+        $('#txtCampOBS').prop('disabled', true);  
+        $('#divBotonEnviar').prop('disabled', true);        
+        
         $("#trBotonGuardaDatosUSU").show();   
     }
     else
@@ -21,6 +25,9 @@ function EstadoUSUsector(bVer)
         $('#txtCampSECTOR').prop('class', "");                              
         $('#txtCampSECTOR').prop('style', "border:none !important;");           
         $('#txtCampSECTOR').prop('style', "background-color:silver;"); 
+
+        $('#txtCampOBS').prop('disabled', false);  
+        $('#divBotonEnviar').prop('disabled', false);       
     }
 }
 
@@ -82,11 +89,7 @@ function baixarDades()
         success: function(response, status) {
             response = JSON.stringify(response);
             mensajePopup('OK', constants('OKRebent'), 4000);
-            var rebut = response.split("#");
-            //$("#txtCamp1").val("el " + rebut[0].split("|")[0] + " és " + rebut[0].split("|")[1]);
-            //$("#txtCamp2").val("el " + rebut[1].split("|")[0] + " és " + rebut[1].split("|")[1]);
-            if(rebut.length > 2)
-                $("#txtCampOBS").val(rebut[0].split("|")[1] + " / " + rebut[1].split("|")[1] + " / " + rebut[2].split("|")[1]);
+            $("#txtCampOBS").val(response);
         },
             error: function(request, status, error) { 
                 mensajePopup('KO', constants('ERRORRevent') + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders(), 0);

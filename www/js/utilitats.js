@@ -68,7 +68,8 @@ function mensajePopup(cual, txtMsg, esperar)
     }
 }
 
-function webDelICS()
+function linkWebsiteICS()
 {
     location.href='http://ics.gencat.cat/ca/inici';
 }
+

@@ -32,7 +32,6 @@ function onCapturePhoto(fileURI) {
     var win = function (r) {
         clearCacheCamera();
         retries = 0;
-        //alert('Done!');
     }
  
     var fail = function (error) {

@@ -42,37 +42,40 @@ var app = {
         destinationType = navigator.camera.DestinationType;
         
         $.doTimeout(2000, function(){ 
-            cordova.getAppVersion.getVersionNumber(function (version) {
+            cordova.getAppVersion.getVersionNumber(function (version) {  //coge la v. del tag version del config.xml
                 $("#tdPie").html("v." + version);                    
                 $("#deviceready").hide();
-                $("#trBotonGuardaDatosUSU").hide();
+                
+                EstadoUSUsector(false);  //USU y SECTOR en modo consulta
+
                 $.mobile.changePage('#pagePrincipal', {transition: "flow"}); 
 
                 var datosUsu = "";
                 try
                 {
-                    datosUsu = recuperaDatosUSU();                 
+                    datosUsu = recuperaDatosUSU();                                     
                 }
                 catch(err)
                 {
                     mensajePopup("KO", constants('ERRORConfig') + err.message, 0);
+                    EstadoUSUsector(true);  //USU y SECTOR en modo edición   
                 }
 
                 if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
                 {                       
                     mensajePopup("KO", constants('NOConfig'), 0);
-                    EstadoUSUsector(true);                             
+                    EstadoUSUsector(true);  //USU y SECTOR en modo edición                        
                 }
                 else
                 {                                 
                     if(datosUsu.startsWith("ERROR")) 
                     {
                         mensajePopup("KO", datosUsu, 0);
-                        EstadoUSUsector(true);     
+                        EstadoUSUsector(true);  //USU y SECTOR en modo edición       
                     }
                     else
                     {
-                        EstadoUSUsector(false);                                         
+                        EstadoUSUsector(false);  //USU y SECTOR en modo consulta                                         
                         var sUsu = datosUsu.split("|")[0]; 
                         var sSector = datosUsu.split("|")[1];                        
                         $("#txtCampUSU").val(sUsu);
@@ -83,11 +86,11 @@ var app = {
             });                   
         }); 
         
+        /* SALIR DE LA APP CUANDO SE PULSE LA TECLA BACK */
         $(window).on("navigate", function (event, data) {
             var direction = data.state.direction;
             if (direction == 'back') {
-                mensajePopup("KO", "Sortint ...", 4000);
-                setTimeout(function(){ navigator.app.exitApp(); }, 5000);                
+                setTimeout(function(){ navigator.app.exitApp(); }, 3000);                
             }
         });
     },
