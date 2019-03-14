@@ -86,8 +86,8 @@ var app = {
         $(window).on("navigate", function (event, data) {
             var direction = data.state.direction;
             if (direction == 'back') {
-                mensajePopup("KO", "Sortint ...", 2000);
-                setTimeout(function(){ navigator.app.exitApp(); }, 2500);                
+                mensajePopup("KO", "Sortint ...", 4000);
+                setTimeout(function(){ navigator.app.exitApp(); }, 5000);                
             }
         });
     },
