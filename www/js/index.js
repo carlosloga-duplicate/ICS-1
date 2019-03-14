@@ -90,7 +90,7 @@ var app = {
         $(window).on("navigate", function (event, data) {
             var direction = data.state.direction;
             if (direction == 'back') {
-                setTimeout(function(){ navigator.app.exitApp(); }, 3000);                
+                setTimeout(function(){ navigator.app.exitApp(); }, 1500);                
             }
         });
     },
