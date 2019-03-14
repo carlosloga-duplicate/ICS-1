@@ -55,13 +55,13 @@ var app = {
                 }
                 catch(err)
                 {
-                    mensajePopup("KO", 'ERROR recuperant l´usuari/sector d´aquest mòvil: ' + err.message, 0);
+                    mensajePopup("KO", constants('ERRORConfig') + err.message, 0);
                 }
 
                 //DEBUG:
                 if(datosUsu == undefined)  //compara si es null o es undefined (la function no devolvió nada) 
                 {                       
-                    mensajePopup("KO", "Mòvil no  configurat. Informi usuari i sector si us plau", 0);
+                    mensajePopup("KO", constants('NOConfig'), 0);
                     $('#txtCampUSU').prop('readonly', false);
                     $('#txtCampSECTOR').prop('readonly', false);      
                     $("#trBotonGuardaDatosUSU").show();                               

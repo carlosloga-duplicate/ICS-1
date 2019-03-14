@@ -39,7 +39,7 @@
 </head>
 
 <body style="margin:auto; width: 100%;">
-    <div data-role="page" id="pageINICI">
+<!--     <div data-role="page" id="pageINICI">
         <div id="divINICI" class="app">
             <h1>Institut Català de la Salut</h1>
             <div id="deviceready" class="blink" style="text-align: center;">
@@ -49,20 +49,20 @@
                 <p class="event received">Carregant l'aplicació</p> 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div data-role="page" id="pagePrincipal" data-theme="a" >
-        <div data-role="header"  data-theme="a" style="border: 0px">            
+        <div data-role="header"  data-theme="a" style="border: 1px">            
             <table>
                 <tr>
-                    <td style="width: 10%;">
-                        <img src="img/logo.png" width="35"/></td><td style="text-align: left; width: 100%;">
+                    <td style="width: 20%;">
+                        <img src="img/logo.png" width="40"/>
                     </td>
-                    <td style="width: 85%; text-align: left;">
-                        <label style="font-size:medium;">FOTOS INMEDIATES</label>
+                    <td style="width: 70%; text-align: center;">
+                        <label style="font-size:small; font-weight: bold;">FOTOS INMEDIATES</label>
                     </td>    
-                    <td style="width: 5%; text-align: right;">
-                        <a href="#" id="botonCambiaDatosUSU" name="botonCambiaDatosUSU" data-mini="true" data-iconpos="notext" data-role="button" data-inline="true" data-theme="b" data-icon="gear" onclick="cambiaUsuSector();"></a>    <!-- class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" -->
+                    <td style="width: 10%; text-align: right;">
+                        <a href="#" id="botonCambiaDatosUSU" name="botonCambiaDatosUSU" data-mini="true" data-iconpos="notext" data-role="button" data-inline="true" data-theme="b" data-icon="gear" onclick="cambiaUsuSector();"></a>  <!-- class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" -->
                     </td>
                 </tr>
             </table>
@@ -78,7 +78,15 @@
                         <td style="width: 50%;"><input type="text" name="txtCampUSU" id="txtCampUSU" data-mini="true" readonly></td>
                         <td style="width: 50%;"><input type="text" name="txtCampSECTOR" id="txtCampSECTOR" data-mini="true" readonly></td>
                     </tr>   
-                    <tr id="trBotonGuardaDatosUSU" name="trBotonGuardaDatosUSU"><td colspan="2" style="background-color: silver; text-align: center;"><a href="#" data-mini="true" id="botonGuardaDatosUSU" data-inline="true" data-role="button" name="botonGuardaDatosUSU" onclick="guardaUsuSector();">Guardar</a></td></tr>      
+                    <tr id="trBotonGuardaDatosUSU" name="trBotonGuardaDatosUSU">
+                        <td colspan="2" style="background-color: silver; text-align: right;">
+                            <a href="#" data-mini="true" id="botonCancelaDatosUSU" data-inline="true" data-role="button" name="botonCancelaDatosUSU" onclick="cancelaUsuSector();">Cancel·lar</a>                            
+                            <a href="#" data-mini="true" id="botonGuardaDatosUSU" data-inline="true" data-role="button" name="botonGuardaDatosUSU" onclick="guardaUsuSector();">Guardar</a>                            
+                        </td> 
+<!--                         <td style="background-color: silver; text-align: left;">
+                            
+                        </td>      -->                   
+                    </tr>      
                 </table>
             </div>
             <br/>

@@ -1,4 +1,19 @@
 
+function EstadoUSUsector(bVer)
+{
+    if(bVer)
+    {
+        $('#txtCampUSU').prop('readonly', false);
+        $('#txtCampSECTOR').prop('readonly', false);
+        $("#trBotonGuardaDatosUSU").show();   
+    }
+    else
+    {
+        $('#txtCampUSU').prop('readonly', true);
+        $('#txtCampSECTOR').prop('readonly', true);
+        $("#trBotonGuardaDatosUSU").hide();   
+    }
+}
 
 function guardaDatosUSU(sUsu, sSector)
 {
@@ -12,13 +27,13 @@ function recuperaDatosUSU()
         var sUsu = localStorage.getItem('USU');
         var sSector = localStorage.getItem('SECTOR');
         if(sUsu == null || sSector == null)
-            return "ERROR: Mòvil no configurat. Informi usuari i sector si us plau";
+            return constants('NOConfig');
         else
             return sUsu + "|" + sSector;
     }
     catch(err)
     {
-        return 'ERROR recuperant l´usuari/sector d´aquest mòvil: ' + err.message;
+        return constants('ERRORConfig') + err.message;
     }
 }
 
@@ -27,16 +42,17 @@ function guardaUsuSector()
     var sUsu = $("#txtCampUSU").val();
     var sSector = $("#txtCampSECTOR").val();
     guardaDatosUSU(sUsu,sSector);
-    $('#txtCampUSU').prop('readonly', true);
-    $('#txtCampSECTOR').prop('readonly', true);
-    $("#trBotonGuardaDatosUSU").hide();    //$("#botonGuardaDatosUSU").hide(); 
+    EstadoUSUsector(false);
+}
+
+function cancelaUsuSector()
+{
+    EstadoUSUsector(false);
 }
 
 function cambiaUsuSector()
 {
-    $('#txtCampUSU').prop('readonly', false);
-    $('#txtCampSECTOR').prop('readonly', false); 
-    $("#trBotonGuardaDatosUSU").show();    //$("#botonGuardaDatosUSU").show();  
+    EstadoUSUsector(true); 
 }
 
 function baixarDades()

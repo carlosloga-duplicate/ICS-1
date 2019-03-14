@@ -30,12 +30,15 @@ function constants(sCual)
         dict['ERROREnviant'] = "ERROR enviant les dades ";
         dict['ERRORRevent'] = "ERROR rebent dades ";    
         dict['ERRORFoto'] = "ERROR capturant foto ";
+        dict['ERRORConfig'] = "ERROR recuperant l´usuari/sector d´aquest mòvil: ";
 
         dict['OKEnviant'] = "Les dades s´han enviat correctament";
         dict['OKRebent'] = "Les dades s´han rebut correctament";    
         
         dict['WAITRebent'] = "Rebent dades del servidor";
         dict['WAITEnviant'] = "Enviant dades al servidor";
+
+        dict['NOConfig'] = "Mòvil no  configurat. Informi usuari i sector si us plau";
 
         sRet = dict[sCual].toString();
     }
