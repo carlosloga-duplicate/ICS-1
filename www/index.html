@@ -39,7 +39,9 @@
 </head>
 
 <body style="margin:auto; width: 100%;">
-<!--     <div data-role="page" id="pageINICI">
+
+    <!-- PANTALLA DE INICIO  -->
+    <div data-role="page" id="pageINICI">
         <div id="divINICI" class="app">
             <h1>Institut Català de la Salut</h1>
             <div id="deviceready" class="blink" style="text-align: center;">
@@ -49,30 +51,37 @@
                 <p class="event received">Carregant l'aplicació</p> 
             </div>
         </div>
-    </div> -->
+    </div>
 
+    <!-- PANTALLA PRINCIPAL -->
     <div data-role="page" id="pagePrincipal" data-theme="a" >
+
+        <!-- LINEA DE CABECERA -->
         <div data-role="header"  data-theme="a" style="border: 1px">            
             <table>
                 <tr>
-                    <td style="width: 20%;">
+                    <td style="width: 20%; vertical-align: middle;">
                         <img src="img/logo.png" width="40"/>
                     </td>
                     <td style="width: 70%; text-align: center;">
-                        <label style="font-size:small; font-weight: bold;">FOTOS INMEDIATES</label>
+                        <label style="font-size:medium; font-weight: bold;">FOTOS INMEDIATES</label>
                     </td>    
                     <td style="width: 10%; text-align: right;">
-                        <a href="#" id="botonCambiaDatosUSU" name="botonCambiaDatosUSU" data-mini="true" data-iconpos="notext" data-role="button" data-inline="true" data-theme="b" data-icon="gear" onclick="cambiaUsuSector();"></a>  <!-- class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" -->
+                        <a href="#" class="ui-body ui-body-b" id="botonCambiaDatosUSU" name="botonCambiaDatosUSU" data-mini="true" data-iconpos="notext" data-role="button" data-inline="true" data-icon="gear" onclick="cambiaUsuSector();"></a>  <!-- class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" -->
                     </td>
                 </tr>
             </table>
         </div>
+
+        <!-- CONTENIDO -->
         <div data-role="content" data-theme="a">
+
+            <!-- GESTIÓN USU y SECTOR -->
             <div style="background-color: silver;">
                 <table style="width: 99%;">
                     <tr>
-                        <td style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">Usuari</label></td>
-                        <td style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">Sector</label></td>                    
+                        <td style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">&nbsp;Usuari</label></td>
+                        <td style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">&nbsp;Sector</label></td>                    
                     </tr>
                     <tr>
                         <td style="width: 50%;"><input type="text" name="txtCampUSU" id="txtCampUSU" data-mini="true" readonly></td>
@@ -82,14 +91,14 @@
                         <td colspan="2" style="background-color: silver; text-align: right;">
                             <a href="#" data-mini="true" id="botonCancelaDatosUSU" data-inline="true" data-role="button" name="botonCancelaDatosUSU" onclick="cancelaUsuSector();">Cancel·lar</a>                            
                             <a href="#" data-mini="true" id="botonGuardaDatosUSU" data-inline="true" data-role="button" name="botonGuardaDatosUSU" onclick="guardaUsuSector();">Guardar</a>                            
-                        </td> 
-<!--                         <td style="background-color: silver; text-align: left;">
-                            
-                        </td>      -->                   
+                        </td>                  
                     </tr>      
                 </table>
             </div>
+
             <br/>
+
+            <!-- OBSERVACIONES -->
             <div>
                 <table style="width: 99%;"></table>     
                     <tr>
@@ -100,28 +109,35 @@
                     <tr>
                 </table>
             </div>
+
+            <!-- BOTÓN y MENSAJE PARA ADJUNTAR FOTO Y ENVIAR -->
             <br/>
             <div id="divBotonEnviar" style="width: 100%; text-align: center;">
-                <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" data-mini="true" onclick="capturePhoto(); return false;">Adjuntar foto i enviar</a>
+                <a href="#" data-mini="true" data-inline="true" data-role="button" onclick="capturePhoto(); return false;">Adjuntar foto i enviar</a>  <!-- class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action"  -->
             </div>
             <br/>            
             <div id="Avis" name="Avis" class="blink" style="display: none; text-align: center;">
                 <p id="pTxtAvis" name="pTxtAvis" class="event listening">...</p>
             </div>
+
             <!-- 
             <br/>
             <div id="divBotonGET" style="width: 100%; text-align: center;">
                 <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-action" onclick="baixarDades();">Baixar dades del servidor</a>
             </div> -->
-            <div data-role="popup" id="AvisEnvioOK" name="AvisEnvioOK" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #c7efc4;">
+
+            <!-- MENSAJES POP UPs -->
+            <div data-role="popup" id="AvisEnvioOK" name="AvisEnvioOK" data-history="false" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #c7efc4;">
                 <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right" data-mini="true">OK</a>
                 <p id="txtOK" name="txtOK">Dades enviades</p>
             </div>               
-            <div data-role="popup" id="AvisEnvioKO" name="AvisEnvioKO" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #FFC6C1">
+            <div data-role="popup" id="AvisEnvioKO" name="AvisEnvioKO" data-history="false" data-position-to="window" class="ui-content" style="max-width:280px; background-color: #FFC6C1">
                 <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right" data-mini="true">OK</a>
                 <p id="txtKO" name="txtKO">ERROR enviant dades</p>
             </div>  
         </div>        
+
+        <!-- LINEA DE PIE DE PÁGINA -->
         <div data-role="footer" id="divPie" name="divPie" data-theme="a" style="border: 0px; font-size: xx-small; text-align: right; width: 100%; position: fixed; bottom: 1px;">
             <table style="width: 100%;">
                 <tr>
@@ -130,6 +146,7 @@
                 </tr>
             </table>             
         </div>
+
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
