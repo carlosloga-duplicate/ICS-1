@@ -5,9 +5,8 @@ function onFailCamera(message) {
 }
 
 var OKfoto = function (r) {    
-    mensajePopup('OK', constants('OKEnviant'), 4000);
+    mensajePopup('OK', constants('OKEnviant'), 5000);
     $("#txtCampOBS").val("");
-    // alert('Foto pujada: ' + r.response + '  \nbytes enviats:' + r.bytesSent);
 }
 
 var ERRORfoto = function (error) {

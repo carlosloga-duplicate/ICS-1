@@ -67,3 +67,8 @@ function mensajePopup(cual, txtMsg, esperar)
         if(esperar > 0) setTimeout(function(){  $("#AvisEnvioKO").popup("close"); }, esperar);
     }
 }
+
+function webDelICS()
+{
+    location.href='http://ics.gencat.cat/ca/inici';
+}
