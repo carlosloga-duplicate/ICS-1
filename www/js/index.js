@@ -83,9 +83,10 @@ var app = {
             });                   
         }); 
         
-        $(document).on("navigate", function (event, data) {
+        $(window).on("navigate", function (event, data) {
             var direction = data.state.direction;
             if (direction == 'back') {
+                mensajePopup("KO", "Sortint ...", 2000);
                 navigator.app.exitApp();
             }
         });
