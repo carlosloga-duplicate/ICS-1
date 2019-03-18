@@ -68,6 +68,7 @@ function onCapturePhoto(fileURI) {
         mensajePopup('KO', constants("ERRORtimeOut") + "\n" + message, 0);
     }, 30000);
 
+    alert('DEBUG upload de la foto');
     ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
 
 }
