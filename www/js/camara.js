@@ -62,10 +62,12 @@ function onCapturePhoto(fileURI) {
     params.p_camp3 = $("textarea#txtCampOBS").val();
     options.params = params;  
 
-       var ft = new FileTransfer();
-    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options); 
+    var ft = new FileTransfer();
+    
     nEnvia = setTimeout(function() {
         mensajePopup('KO', constants("ERRORtimeOut") + "\n" + message, 0);
     }, 30000);
+
+    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
 
 }
