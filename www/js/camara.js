@@ -4,12 +4,14 @@
 function onFailCamera(message) {
     $('#Avis').hide();
     mensajePopup('KO', constants("ERROREnviant") + "\n" + message, 0);
+    $('#divBotonEnviar').show(); //Mostrar de nuevo el botón de Adjuntar i enviar foto
 }
 
 var OKfoto = function (r) {    
-    clearTimeout(nEnvia);
+    clearTimeout(nEnvia); 
     $('#Avis').hide();
     mensajePopup('OK', constants('OKEnviant'), 8000);
+    $('#divBotonEnviar').show(); //Mostrar de nuevo el botón de Adjuntar i enviar foto
     $("#txtCampOBS").val("");
 }
 
@@ -17,6 +19,7 @@ var ERRORfoto = function (error) {
     clearTimeout(nEnvia); 
     $('#Avis').hide();
     mensajePopup('KO', 'ERROR: (codi:' + error.code + ') enviant la foto ',0); // + error.target, 0);
+    $('#divBotonEnviar').show(); //Mostrar de nuevo el botón de Adjuntar i enviar foto
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 
@@ -24,8 +27,9 @@ function clearCacheCamera() {
     navigator.camera.cleanup();
 }
 
-function capturePhoto() { 
-    $('#pTxtAvis').html(constants('WAITEnviant'));
+function capturePhoto() {  
+    $('#divBotonEnviar').hide(); //Ocultar botón de Adjuntar i enviar foto
+    $('#pTxtAvis').html(constants('WAITEnviant')); //Mostrar aviso 'enviando...'
     $('#Avis').show();
     EstadoUSUsector(false); 
     navigator.camera.getPicture(onCapturePhoto, onFailCamera, {
@@ -39,7 +43,7 @@ var retries = 0;
 function onCapturePhoto(fileURI) {
     var win = function (r) {
         clearCacheCamera();
-        retries = 0;
+        retries = 0;        
     }
  
     var fail = function (error) {
