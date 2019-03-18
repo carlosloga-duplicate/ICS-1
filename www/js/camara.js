@@ -67,7 +67,7 @@ function onCapturePhoto(fileURI) {
     nEnvia = setTimeout(function() {
         ft.abort();
         mensajePopup('KO', constants("ERRORtimeOut") , 0);
-    }, 20000);
+    }, 30000);
 
     ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
 
