@@ -13,7 +13,7 @@ var OKfoto = function (r) {
 
 var ERRORfoto = function (error) {
     clearTimeout(nEnvia);
-    mensajePopup('KO', 'ERROR: ' + error.code + ' desant en: ' + error.target, 0);
+    mensajePopup('KO', 'ERROR: ' + error.code + ' enviant la foto ',0); // + error.target, 0);
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 
@@ -67,7 +67,7 @@ function onCapturePhoto(fileURI) {
     nEnvia = setTimeout(function() {
         ft.abort();
         mensajePopup('KO', constants("ERRORtimeOut") , 0);
-    }, 30000);
+    }, 20000);
 
     ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
 
