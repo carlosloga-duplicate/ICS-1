@@ -31,6 +31,7 @@ function constants(sCual)
         dict['ERRORRevent'] = "ERROR rebent dades ";    
         dict['ERRORFoto'] = "ERROR capturant foto ";
         dict['ERRORConfig'] = "ERROR recuperant l´usuari/sector d´aquest mòvil: ";
+        dict['ERRORtimeOut'] = "S'ha excedit el temps d'enviament";
 
         dict['OKEnviant'] = "Les dades s´han enviat correctament";
         dict['OKRebent'] = "Les dades s´han rebut correctament";    

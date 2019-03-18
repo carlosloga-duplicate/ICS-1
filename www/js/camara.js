@@ -1,15 +1,18 @@
 
+ var nEnvia;
 
 function onFailCamera(message) {
     mensajePopup('KO', constants("ERROREnviant") + "\n" + message, 0);
 }
 
 var OKfoto = function (r) {    
+    clearTimeout(nEnvia);
     mensajePopup('OK', constants('OKEnviant'), 5000);
     $("#txtCampOBS").val("");
 }
 
 var ERRORfoto = function (error) {
+    clearTimeout(nEnvia);
     mensajePopup('KO', 'ERROR: ' + error.code + ' desant en: ' + error.target, 0);
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
@@ -23,7 +26,8 @@ function capturePhoto() {
     $('#Avis').show();
     navigator.camera.getPicture(onCapturePhoto, onFailCamera, {
         quality: 100,
-        destinationType: destinationType.FILE_URI
+        destinationType: destinationType.FILE_URI,
+        saveToPhotoAlbum: false
     });
 }
 
@@ -51,11 +55,17 @@ function onCapturePhoto(fileURI) {
     options.fileKey = "file";
     options.fileName = "Foto_" + Ahora() + "_" +  $("#txtCampUSU").val() + "_" + $("#txtCampSECTOR").val() + ".jpeg";  
     options.mimeType = "image/jpeg"; 
+    options.chunkedMode = false;
     var params = {};
     params.p_camp1 = $("#txtCampUSU").val();
     params.p_camp2 = $("#txtCampSECTOR").val();
     params.p_camp3 = $("textarea#txtCampOBS").val();
     options.params = params;  
-    var ft = new FileTransfer();
-    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
+
+       var ft = new FileTransfer();
+    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options); 
+    nEnvia = setTimeout(function() {
+        mensajePopup('KO', constants("ERRORtimeOut") + "\n" + message, 0);
+    }, 30000);
+
 }
