@@ -6,13 +6,13 @@ function onFailCamera(message) {
 }
 
 var OKfoto = function (r) {    
-    /* clearTimeout(nEnvia); */
-    mensajePopup('OK', constants('OKEnviant'), 5000);
+    clearTimeout(nEnvia);
+    mensajePopup('OK', constants('OKEnviant'), 8000);
     $("#txtCampOBS").val("");
 }
 
 var ERRORfoto = function (error) {
-    /* clearTimeout(nEnvia); */
+    clearTimeout(nEnvia); 
     mensajePopup('KO', 'ERROR: (codi:' + error.code + ') enviant la foto ',0); // + error.target, 0);
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
@@ -63,13 +63,12 @@ function onCapturePhoto(fileURI) {
     options.params = params;  
 
     var ft = new FileTransfer();
-    
- /*    nEnvia = setTimeout(function() {        
+    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
+    alert('after upload');
+    nEnvia = setTimeout(function() {        
         mensajePopup('KO', constants("ERRORtimeOut") , 0);
         ft.abort();
-    }, 45000); */
-
-    ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
+    }, 45000);
 
 }
 
