@@ -90,8 +90,6 @@ var app = {
         $(window).on("navigate", function (event, data) {
             var direction = data.state.direction;
             if (direction == 'back') {
-                $('#pTxtAvis').html(constants('WAITTancant'));
-                $('#Avis').show();
                 setTimeout(function(){ navigator.app.exitApp(); }, 1500);                
             }
         });

@@ -64,11 +64,12 @@ function onCapturePhoto(fileURI) {
 
     var ft = new FileTransfer();
     
-    nEnvia = setTimeout(function() {
-        ft.abort();
+    nEnvia = setTimeout(function() {        
         mensajePopup('KO', constants("ERRORtimeOut") , 0);
-    }, 30000);
+        ft.abort();
+    }, 45000);
 
     ft.upload(fileURI, encodeURI(constants("urlServeiREST")), OKfoto, ERRORfoto, options);
 
 }
+
