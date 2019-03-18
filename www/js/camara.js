@@ -13,7 +13,7 @@ var OKfoto = function (r) {
 
 var ERRORfoto = function (error) {
     clearTimeout(nEnvia);
-    mensajePopup('KO', 'ERROR: ' + error.code + ' enviant la foto ',0); // + error.target, 0);
+    mensajePopup('KO', 'ERROR: (codi:' + error.code + ') enviant la foto ',0); // + error.target, 0);
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
 
