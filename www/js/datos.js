@@ -68,7 +68,10 @@ function cancelaUsuSector()
 
 function cambiaUsuSector()
 {
-    EstadoUSUsector(true); 
+    if($("#trBotonGuardaDatosUSU").is(':visible') )    
+        EstadoUSUsector(false); 
+    else
+        EstadoUSUsector(true); 
 }
 
 function baixarDades()

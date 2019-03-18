@@ -2,17 +2,20 @@
  var nEnvia;
 
 function onFailCamera(message) {
+    $('#Avis').hide();
     mensajePopup('KO', constants("ERROREnviant") + "\n" + message, 0);
 }
 
 var OKfoto = function (r) {    
     clearTimeout(nEnvia);
+    $('#Avis').hide();
     mensajePopup('OK', constants('OKEnviant'), 8000);
     $("#txtCampOBS").val("");
 }
 
 var ERRORfoto = function (error) {
     clearTimeout(nEnvia); 
+    $('#Avis').hide();
     mensajePopup('KO', 'ERROR: (codi:' + error.code + ') enviant la foto ',0); // + error.target, 0);
     //alert("ERROR enviant dades: \nCODE: " + error.code + ' \nSOURCE: ' + error.source + ' \nTARGET: ' + error.target);
 }
@@ -24,6 +27,7 @@ function clearCacheCamera() {
 function capturePhoto() { 
     $('#pTxtAvis').html(constants('WAITEnviant'));
     $('#Avis').show();
+    EstadoUSUsector(false); 
     navigator.camera.getPicture(onCapturePhoto, onFailCamera, {
         quality: 100,
         destinationType: destinationType.FILE_URI,
