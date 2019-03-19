@@ -41,7 +41,7 @@
 <body style="margin:auto; width: 100%;">
 
     <!-- PANTALLA DE INICIO  -->
-    <div data-role="page" id="pageINICI">
+<!--     <div data-role="page" id="pageINICI">
         <div id="divINICI" class="app">
             <h1>Institut Català de la Salut</h1>
             <div id="deviceready" class="blink" style="text-align: center;">
@@ -51,7 +51,7 @@
                 <p class="event received">Carregant l'aplicació</p> 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- PANTALLA PRINCIPAL -->
     <div data-role="page" id="pagePrincipal" data-theme="a" >
@@ -86,7 +86,9 @@
                     <tr>
                         <td colspan="2" style="width: 50%;"><input type="text" name="txtCampUSU" id="txtCampUSU" data-mini="true" readonly></td>
                         <td colspan="2" style="width: 50%;"><input type="text" name="txtCampSECTOR" id="txtCampSECTOR" data-mini="true" readonly></td>
-                    </tr>   
+                    </tr>       
+                </table>
+                <table  style="width: 100%;">
                     <tr id="trBotonGuardaDatosUSU" name="trBotonGuardaDatosUSU">
                         <td style="background-color: #009EFF; text-align: left;">
                                 <a href="#" data-mini="true" id="botonHistoricoUsuSector" data-inline="true" data-role="button" name="botonHistoricoUsuSector" onclick="historicoUsuSector();">Històric</a>                            
@@ -98,7 +100,7 @@
                         <td style="background-color: #009EFF; text-align: right;">
                             <a href="#" data-mini="true" id="botonGuardaDatosUSU" data-inline="true" data-role="button" name="botonGuardaDatosUSU" onclick="guardaUsuSector();">Guardar</a>                            
                         </td>                  
-                    </tr>      
+                    </tr>  
                 </table>
             </div>
 
