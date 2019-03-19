@@ -99,7 +99,7 @@ function historicoUsuSector()
             var aRegistros = response.split("#");
             for(var x=0; x<aRegistros.lenght; x++)
             {
-                sResp += aRegistros[x].replace("|"," / ") + '\n';
+                sResp += aRegistros[x].replace("|"," / ") + "<br/>";
             }
             $('#txtCampOBS').prop('disabled', false);
             $('#txtCampOBS').css('overflow', 'hidden').autogrow();
