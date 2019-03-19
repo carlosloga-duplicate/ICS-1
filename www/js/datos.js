@@ -97,7 +97,7 @@ function historicoUsuSector()
             //mensajePopup('OK', constants('OKRebent'), 4000);
             var registros = response;
             alert("1: " + registros);
-            registros = registros.replace(/|/g, ' : ');
+            registros = registros.replace(/|/g, ' / ');
             registros = registros.replace(/#/g, '\n');
             alert("2" + registros);
             $('#txtCampOBS').prop('disabled', false);
