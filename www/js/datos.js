@@ -96,15 +96,22 @@ function historicoUsuSector()
             response = JSON.stringify(response);
             //mensajePopup('OK', constants('OKRebent'), 4000);
             var registros = response;
+            alert("1: " + registros);
             registros = registros.replace(/|/g, ' : ');
-            registros = registros.replace(/#/g, '\r\n');
-            
+            registros = registros.replace(/#/g, '\n');
+            alert("2" + registros);
             $('#txtCampOBS').prop('disabled', false);
             $('#txtCampOBS').css('overflow', 'hidden').autogrow();
+            alert("3");
             $("#txtCampOBS").val(registros);
             $('#txtCampOBS').focus();
+
+            $('#pTxtAvis').html("");
+            $('#Avis').hide();
         },
             error: function(request, status, error) { 
+                $('#pTxtAvis').html("");
+                $('#Avis').hide();
                 mensajePopup('KO', constants('ERRORRevent') + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders(), 0);
         }
     });
