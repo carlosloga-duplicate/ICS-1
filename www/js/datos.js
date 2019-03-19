@@ -98,6 +98,8 @@ function historicoUsuSector()
             var registros = response;
             registros = registros.replace(/|/g, ' : ');
             registros = registros.replace(/#/g, '\r\n');
+            
+            $('#txtCampOBS').css('overflow', 'hidden').autogrow();
             $("#txtCampOBS").val(registros);
         },
             error: function(request, status, error) { 

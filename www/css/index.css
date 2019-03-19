@@ -119,3 +119,10 @@ h1 {
  display: none;
 }
 
+.textarea.ui-input-text 
+{ 
+    height: inherit !important;
+}
+
+
+
