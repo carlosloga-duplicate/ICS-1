@@ -94,13 +94,15 @@ function historicoUsuSector()
         headers: {"Accept": "application/json"},
         success: function(response, status) {
             response = JSON.stringify(response);
-            mensajePopup('OK', constants('OKRebent'), 4000);
+            //mensajePopup('OK', constants('OKRebent'), 4000);
             var registros = response;
             registros = registros.replace(/|/g, ' : ');
             registros = registros.replace(/#/g, '\r\n');
             
+            $('#txtCampOBS').prop('disabled', false);
             $('#txtCampOBS').css('overflow', 'hidden').autogrow();
             $("#txtCampOBS").val(registros);
+            $('#txtCampOBS').focus();
         },
             error: function(request, status, error) { 
                 mensajePopup('KO', constants('ERRORRevent') + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders(), 0);
