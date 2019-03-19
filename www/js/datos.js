@@ -74,14 +74,17 @@ function cambiaUsuSector()
         EstadoUSUsector(true); 
 }
 
-function baixarDades()
+function historicoUsuSector()
 {
     $('#pTxtAvis').html(constants("WAITRebent"));
     $('#Avis').show();
 
-    var datosUsu = recuperaDatosUSU();
+/*  var datosUsu = recuperaDatosUSU();
     var sUsu = datosUsu.split("|")[0]; 
-    var sSector = datosUsu.split("|")[1]; 
+    var sSector = datosUsu.split("|")[1];  */
+
+    var sUsu = $('#txtCampUSU').val(); 
+    var sSector = $('#txtCampSECTOR').val(); 
 
     $.ajax({
         url: constants("urlServeiREST"),
@@ -92,7 +95,10 @@ function baixarDades()
         success: function(response, status) {
             response = JSON.stringify(response);
             mensajePopup('OK', constants('OKRebent'), 4000);
-            $("#txtCampOBS").val(response);
+            var registros = response;
+            registros = registros.replace(/|/g, ' : ');
+            registros = registros.replace(/#/g, '\r\n');
+            $("#txtCampOBS").val(registros);
         },
             error: function(request, status, error) { 
                 mensajePopup('KO', constants('ERRORRevent') + status + "\n" + request.statusText + "\n" + request.status + "\n" + request.responseText + "\n" + request.getAllResponseHeaders(), 0);

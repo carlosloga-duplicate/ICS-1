@@ -80,16 +80,22 @@
             <div style="background-color: #009EFF;">
                 <table style="width: 99%;">
                     <tr>
-                        <td style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">&nbsp;Usuari</label></td>
-                        <td style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">&nbsp;Sector</label></td>                    
+                        <td colspan="2" style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">&nbsp;Usuari</label></td>
+                        <td colspan="2" style="width: 50%;"><label for="text-basic" data-mini="true" style="color: white;">&nbsp;Sector</label></td>                    
                     </tr>
                     <tr>
-                        <td style="width: 50%;"><input type="text" name="txtCampUSU" id="txtCampUSU" data-mini="true" readonly></td>
-                        <td style="width: 50%;"><input type="text" name="txtCampSECTOR" id="txtCampSECTOR" data-mini="true" readonly></td>
+                        <td colspan="2" style="width: 50%;"><input type="text" name="txtCampUSU" id="txtCampUSU" data-mini="true" readonly></td>
+                        <td colspan="2" style="width: 50%;"><input type="text" name="txtCampSECTOR" id="txtCampSECTOR" data-mini="true" readonly></td>
                     </tr>   
                     <tr id="trBotonGuardaDatosUSU" name="trBotonGuardaDatosUSU">
-                        <td colspan="2" style="background-color: #009EFF; text-align: right;">
+                        <td style="background-color: #009EFF; text-align: left;">
+                                <a href="#" data-mini="true" id="botonHistoricoUsuSector" data-inline="true" data-role="button" name="botonHistoricoUsuSector" onclick="historicoUsuSector();">Històric</a>                            
+                        </td>
+                        <td style="background-color: #009EFF; text-align: center;">&nbsp;</td>                      
+                        <td style="background-color: #009EFF; text-align: right;">
                             <a href="#" data-mini="true" id="botonCancelaDatosUSU" data-inline="true" data-role="button" name="botonCancelaDatosUSU" onclick="cancelaUsuSector();">Cancel·lar</a>                            
+                        </td>                  
+                        <td style="background-color: #009EFF; text-align: right;">
                             <a href="#" data-mini="true" id="botonGuardaDatosUSU" data-inline="true" data-role="button" name="botonGuardaDatosUSU" onclick="guardaUsuSector();">Guardar</a>                            
                         </td>                  
                     </tr>      
