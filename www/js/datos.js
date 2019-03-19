@@ -95,15 +95,15 @@ function historicoUsuSector()
         success: function(response, status) {
             response = JSON.stringify(response);
             //mensajePopup('OK', constants('OKRebent'), 4000);
-            var registros = response;
-            alert("1: " + registros);
-            registros = registros.replace(/|/g, ' / ');
-            registros = registros.replace(/#/g, '\n');
-            alert("2" + registros);
+            var sResp = "";
+            var aRegistros = response.split("#");
+            for(var x=0; x<aRegistros.lenght; x++)
+            {
+                sResp += aRegistros[x].replace("|"," / ") + '\n';
+            }
             $('#txtCampOBS').prop('disabled', false);
             $('#txtCampOBS').css('overflow', 'hidden').autogrow();
-            alert("3");
-            $("#txtCampOBS").val(registros);
+            $("#txtCampOBS").val(sResp);
             $('#txtCampOBS').focus();
 
             $('#pTxtAvis').html("");
